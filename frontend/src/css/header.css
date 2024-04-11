@@ -1,0 +1,16 @@
+.navbar {
+    display: inline-flexbox; 
+    padding-left: 30px; 
+  }
+  
+  .navbar img {
+     display: block;
+     margin-right: 10px;
+     width: 85px;
+     height: 78px;
+  }
+
+  .navbar h3 {
+    margin: 0; 
+    font-family: sans-serif;
+  }
