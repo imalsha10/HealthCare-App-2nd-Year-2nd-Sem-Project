@@ -8,6 +8,12 @@ import ViewAddedDrugs from './components/OnlinePharmacy/ViewAddedDrugs';
 
 
 
+import OrderDrugs from './components/OrderDrugs';
+import Alluser from './components/Alluser';
+import OrderDetails from './components/OrderDetails';
+
+
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 
@@ -31,6 +37,24 @@ function App() {
           <Routes>
                <Route path='/onlinepharmacyP' element={<SearchBar/>}></Route>
           </Routes>
+
+
+
+
+          //Prescribed-medication
+
+          <Routes>
+       <Route path="/" element = {<Alluser/>} />
+       </Routes>
+       <Routes>
+       <Route path="/add" element = {<OrderDrugs/>} />
+       </Routes>
+       <Routes>
+       <Route path="/order-details" element = {<OrderDetails/>} />
+       </Routes>
+
+
+       
         
       </div>
 
