@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import axios  from 'axios';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -28,19 +29,26 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export default function ViewAddedDrugs() {
+
+
+   const [drugs, setDrugs] = React.useState([]);
+
+   React.useEffect(()=>{
+      function allDrugs() {
+          axios.get("http://localhost:8070/newdrugs/").then((res)=>{
+              console.log(res.data);
+              setDrugs(res.data);
+          }).catch((err) => {
+              alert(err.message);
+          })
+      }
+      allDrugs() 
+   },[])
+
+
   return (
     <TableContainer component={Paper} style={{display:'inline-block', maxWidth:'450px', marginTop:'20px'}}>
       <Table  aria-label="customized table">
@@ -51,12 +59,12 @@ export default function ViewAddedDrugs() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          {drugs.map((drugs) => (
+            <StyledTableRow key={drugs.id}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {drugs.name}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.calories}</StyledTableCell>
+              <StyledTableCell align="center">{drugs.quantity}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
