@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import NavBar from './components/Header/NavBar';
 import AddDrugBtn from './components/OnlinePharmacy/AddDrugBtn';
 import AddDrugForm from './components/OnlinePharmacy/AddDrugForm';
+import SearchBar from './components/OnlinePharmacy/SearchBar';
 import ViewAddedDrugs from './components/OnlinePharmacy/ViewAddedDrugs';
 
 
@@ -25,7 +26,10 @@ function App() {
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
             </Route>
-           
+          </Routes>
+
+          <Routes>
+               <Route path='/onlinepharmacyP' element={<SearchBar/>}></Route>
           </Routes>
         
       </div>
