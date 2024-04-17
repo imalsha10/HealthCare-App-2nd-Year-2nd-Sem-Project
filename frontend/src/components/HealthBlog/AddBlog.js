@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { handleUpload } from "../utils/HandleUpload";
-import { successMessage } from "../utils/Alert";
+import { handleUpload } from "../HealthBlog/utils/HandleUpload";
+import { successMessage } from "../HealthBlog/utils/Alert";
+
 
 export default function AddBlog() {
   const [image, setImage] = useState("");

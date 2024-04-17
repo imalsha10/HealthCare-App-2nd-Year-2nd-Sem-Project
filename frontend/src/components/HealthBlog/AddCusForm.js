@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { successMessage } from "../utils/Alert";
+import { successMessage } from "../HealthBlog/utils/Alert";
 
 export default function AddCusForm() {
   const [fullname, setFullname] = useState("");
