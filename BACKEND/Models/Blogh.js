@@ -19,10 +19,14 @@ const bloghSchema = new Schema({
     blogbody : {
         type:String,
         required:true
-    }
+    },
+    image: {
+        type: String,
+        required: true,
+      },
 
 
-})
+});
 
 const Blogh = mongoose.model("Blogh",bloghSchema);
 module.exports = Blogh;

@@ -28,6 +28,21 @@ connection.once("open", () => {
 const drugsRouter = require("./Routes/drugs");
 app.use("/newdrugs",drugsRouter);
 
+//HealthBlog
+
+const bloghRouter = require("./Routes/bloghs.js");
+
+app.use("/blogh", bloghRouter);
+
+const eventRouter = require("./Routes/evenths.js");
+
+app.use("/eventh", eventRouter);
+
+const eventformRouter = require("./Routes/eventforms.js");
+
+app.use("/eventform", eventformRouter);
+
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
