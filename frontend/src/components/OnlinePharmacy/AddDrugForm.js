@@ -6,6 +6,9 @@ import Container from '@mui/material/Container';
 import axios from 'axios';
 
 
+
+
+
 export default function AddDrugForm (){
 
 
@@ -14,9 +17,46 @@ export default function AddDrugForm (){
     const[price, setPrice] = React.useState("");
     const[quantity, setQuantity] = React.useState("");
 
+    const [errors, setErrors] = React.useState({});
+
+    const validateForm = () => {
+        let errors = {};
+        let formIsValid = true;
+    
+        if (!name.trim()) {
+            errors.name = 'Name is required';
+            formIsValid = false;
+        }
+    
+        if (!description.trim()) {
+            errors.description = 'Description is required';
+            formIsValid = false;
+        }
+    
+        if (!price.trim()) {
+            errors.price = 'Price is required';
+            formIsValid = false;
+        } else if (isNaN(price)) {
+            errors.price = 'Price must be a number';
+            formIsValid = false;
+        }
+    
+        if (!quantity.trim()) {
+            errors.quantity = 'Quantity is required';
+            formIsValid = false;
+        } else if (isNaN(quantity)) {
+            errors.quantity = 'Quantity must be a number';
+            formIsValid = false;
+        }
+    
+        setErrors(errors);
+        return formIsValid;
+    };
+
     function sendData(e) {
        e.preventDefault();
        
+       if(validateForm()) {
        const newDrug = {
           name,
           description,
@@ -27,7 +67,7 @@ export default function AddDrugForm (){
        axios.post("http://localhost:8070/newdrugs/add", newDrug).then(() =>{
           alert("Drug Added successfully!");
          
-            setName(() => "");
+            setName("");
             setDescription("");
             setPrice("");
             setQuantity("");
@@ -38,6 +78,8 @@ export default function AddDrugForm (){
        })
 
     }
+
+}
 
 
     return (
@@ -58,7 +100,9 @@ export default function AddDrugForm (){
                     label="Name of the Drug"
                     placeholder="eg : paracetamol"
                     multiline
-
+                    error={!!errors.name}
+                    helperText={errors.name}
+                    value={name}
                     onChange={(e)=>{
                         setName(e.target.value);
                     }}
@@ -68,6 +112,8 @@ export default function AddDrugForm (){
                     label="Description"
                     multiline
                     rows={4}
+                    error={!!errors.description}
+                    value={description}
                     helperText="Enter a brief description about the drug"
 
                     onChange={(e)=>{
@@ -80,7 +126,9 @@ export default function AddDrugForm (){
                     placeholder="Rs 100.00"
                     type='number'
                     multiline
-
+                    helperText={errors.price}
+                    error={!!errors.price}
+                    value={price}
                     onChange={(e)=>{
                         setPrice(e.target.value);
                     }}
@@ -96,7 +144,9 @@ export default function AddDrugForm (){
                     inputProps={{
                         min : "1"
                     }}
-
+                    helperText={errors.quantity}
+                    error={!!errors.quantity}
+                    value={quantity}
                     onChange={(e)=>{
                         setQuantity(e.target.value);
                     }}
