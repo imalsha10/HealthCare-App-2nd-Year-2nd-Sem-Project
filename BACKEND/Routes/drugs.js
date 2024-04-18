@@ -44,7 +44,7 @@ router.route("/get").get((req,res) =>{
 
      drug.find({}, {name:1, description : 1, price : 1, _id: 0})
      .sort({_id :-1})
-     .limit(10)
+     .limit(9)
      .then((drugs)=>{
          res.json(drugs)
      }).catch((err)=>{
@@ -63,6 +63,7 @@ router.route("/getone/:name").get((req,res) => {
             const { name,  description , price} = drug
             res.status(200).send({status :"Drug Found",  name,  description , price})
         } else {
+            console.log("Drug Not Found");
             res.status(404).send({status : "Drug Not Found"});
         }
        
