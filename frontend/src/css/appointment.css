@@ -1,0 +1,68 @@
+.container-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #f0f5f9;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+label {
+    color: rgb(69, 69, 69);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 100%;
+    margin-left: 3px;
+    background-color: #83b7ef;
+    border-color: #007bff;
+    color: #fff;
+}
+
+#submit-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px;
+}
+
+span {
+    font-size: 15px;
+    padding: 6px;
+    color: red;
+    display: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+input:invalid[focused="true"] {
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"]~span {
+    display: block;
+}

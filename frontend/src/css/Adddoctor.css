@@ -1,0 +1,36 @@
+.add-doctor-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.Docitem {
+    margin-bottom: 10px;
+}
+
+.Docitem label {
+    display: inline-block;
+    width: 100px;
+}
+
+.Docitem input {
+    width: calc(100% - 100px);
+}
+
+.btn-primary {
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.view-doctors-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2069b6;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+}

@@ -1,0 +1,85 @@
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.order-section-one-container,
+.order-section-two-container {
+    margin-bottom: 20px;
+}
+
+.order-section-one-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-section-one-left {
+    display: inline-flex;
+    align-items: center;
+}
+
+.appointment-link {
+    font-size: 18px;
+    color: blue;
+    text-decoration: underline;
+}
+
+.search-text {
+    margin-right: 10px;
+}
+
+.search-box {
+    padding: 6px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.table-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #5d93ce;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.order-table-row:nth-child(even) {
+    background-color: #f0faff;
+}
+
+.order-table-row:hover {
+    background-color: #cceeff;
+}
+
+.delete-button {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: transparent;
+    color: white;
+}
