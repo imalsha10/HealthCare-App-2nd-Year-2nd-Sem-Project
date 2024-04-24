@@ -10,7 +10,7 @@ function NavBar2 () {
         <div className="navBar">
          <ul className="nav nav-underline" style={{marginLeft:"18px",marginRight:"18px"}}>
                 <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/onlineP">Pharmacy Management</a>
+                <a className="nav-link" aria-current="page" href="#">Pharmacy Management</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Prescribed Orders</a>

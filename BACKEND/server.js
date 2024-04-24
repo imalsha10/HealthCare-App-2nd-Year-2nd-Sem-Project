@@ -28,6 +28,11 @@ connection.once("open", () => {
 const drugsRouter = require("./Routes/drugs");
 app.use("/newdrugs",drugsRouter);
 
+const ordersRouter = require("./Routes/orders");
+app.use("/neworders",ordersRouter);
+
+
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
