@@ -28,10 +28,8 @@ connection.once("open", () => {
 const drugsRouter = require("./Routes/drugs");
 app.use("/newdrugs",drugsRouter);
 
-const ordersRouter = require("./Routes/orders");
-app.use("/neworders",ordersRouter);
-
-
+const userRouter = require("./Routes/users.js");
+app.use("/user",userRouter);
 
 
 app.listen(PORT, () => {
