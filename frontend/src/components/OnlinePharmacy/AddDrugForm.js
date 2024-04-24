@@ -83,7 +83,7 @@ export default function AddDrugForm (){
 
 
     return (
-       <Box style={{marginLeft:'0px', marginTop:'20px'}}
+       <Box style={{marginLeft:'0px', marginTop:'20px', marginBottom:'20px'}}
             component="form"
             sx={{
                 display:'flex',

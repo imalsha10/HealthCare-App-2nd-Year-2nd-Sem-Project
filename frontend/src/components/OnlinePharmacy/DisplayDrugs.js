@@ -35,7 +35,7 @@ export default function DisplayDrugs() {
   return (
    
   
-    <Container style={{marginTop :40, marginLeft:'48px'}}>
+    <Container style={{marginTop :40, marginLeft:'48px', marginBottom:'20px'}}>
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
       {drugs.map((drug, index) => (
             <Card key={index} sx={{ maxWidth: 345 }}>

@@ -1,4 +1,5 @@
 
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import NavBar from './components/Header/NavBar';
 import AddDrugBtn from './components/OnlinePharmacy/AddDrugBtn';
@@ -46,6 +47,7 @@ function App() {
           </Routes>
           
         
+        <Footer/>
         
       </div>
 

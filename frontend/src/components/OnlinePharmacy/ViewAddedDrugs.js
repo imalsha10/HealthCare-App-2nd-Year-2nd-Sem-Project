@@ -50,7 +50,7 @@ export default function ViewAddedDrugs() {
 
 
   return (
-    <TableContainer component={Paper} style={{display:'inline-block', maxWidth:'450px', marginTop:'20px'}}>
+    <TableContainer component={Paper} style={{display:'inline-block', maxWidth:'450px', marginTop:'20px', marginBottom:'20px'}}>
       <Table  aria-label="customized table">
         <TableHead>
           <TableRow>
