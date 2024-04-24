@@ -28,6 +28,13 @@ connection.once("open", () => {
 const drugsRouter = require("./Routes/drugs");
 app.use("/newdrugs",drugsRouter);
 
+//Dental
+const serviceRouter = require("../BACKEND/Routes/services");
+app.use("/services", serviceRouter);
+
+const patientRouter = require("../BACKEND/Routes/patients");
+app.use("/patients", patientRouter);
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
