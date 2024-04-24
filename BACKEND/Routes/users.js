@@ -1,24 +1,25 @@
-
 const router = require("express").Router();
-let User = require("../models/User");
+let User = require("../Models/User");
 
 router.route("/add").post((req,res)=>{
 
-    const fname=req.body.fname;
-    const lname=req.body.lname;
+    const name=req.body.name;
+    const number=req.body.number;
     const email=req.body.email;
     const province=req.body.province;
     const city=req.body.city;
+    const address =req.body.address;
     
     
 
     const newUser = new User({
 
-        fname,
-        lname,
+        name,
+        number,
         email,
         province,
         city,
+        address
     
     })
 
@@ -42,20 +43,22 @@ router.route("/").get((req,res)=>{
 router.route("/update/:id").put(async(req,res)=>{
     let userId = req.params.id;
 
-    const{fname,
-        lname,
+    const{name,
+        number,
         email,
         province,
         city,
+        address
         
     }=req.body;
 
     const updateUser ={
-        fname,
-        lname,
+        name,
+        number,
         email,
         province,
         city,
+        address
         
     };
     const update = await User.findByIdAndUpdate(userId,updateUser).then(()=>{

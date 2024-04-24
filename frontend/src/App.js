@@ -13,6 +13,12 @@ import ViewAddedDrugs from './components/OnlinePharmacy/ViewAddedDrugs';
 
 
 
+import OrderDrugs from './components/PrescribedMed/OrderDrugs';
+import Alluser from './components/PrescribedMed/Alluser';
+import OrderDetails from './components/PrescribedMed/OrderDetails';
+
+
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 
@@ -23,24 +29,53 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
-        <NavBar />
 
-        <Routes>
-          <Route path="/" element={<DoctorView />} />
+          <Header/>
+          <NavBar/>
+        
+          <Routes>
+            <Route path='/onlinepharmacy' element={<AddDrugBtn/>}>
+               <Route path='addDrug' element={<AddDrugForm/>}/>
+               <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
+            </Route>
+          </Routes>
+
+          <Routes>
+               <Route path='/onlinepharmacyP' element={<SearchBar/>}></Route>
+          </Routes>
+
+
+
+
+          //Prescribed-medication
+
+       <Routes>
+       <Route path="/" element = {<Alluser/>} />
+       </Routes>
+       <Routes>
+       <Route path="/prescribed" element = {<OrderDrugs/>} />
+       </Routes>
+       <Routes>
+       <Route path="/order-details" element = {<OrderDetails/>} />
+       </Routes>
+
+
+
+          //Consultant-Care
+
+      <Routes>
+           <Route path="/" element={<DoctorView />} />
           <Route path="/add" element={<Adddoctor />} />
           <Route path="/addapp" element={<CreateAppointment />} />
            <Route path="/updateAppointment/:id"element={<UpdateAppointment/>}></Route>
           <Route path="/appointmentDetails/:id"element={<AppointmentDetails />}></Route>
-          <Route path="/onlinepharmacy" element={<AddDrugBtn />}>
-            <Route path="addDrug" element={<AddDrugForm />} />
-            <Route path="viewDrug" element={<ViewAddedDrugs />} />
-          </Route>
-        </Routes>
+         
+      <Routes/>
 
-        <Routes>
-          <Route path="/onlinepharmacyP" element={<SearchBar />}></Route>
-        </Routes>
+
+       
+        
+
       </div>
     </Router>
   );

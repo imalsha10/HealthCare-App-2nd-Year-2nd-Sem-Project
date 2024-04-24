@@ -26,12 +26,17 @@ connection.once("open", () => {
 });
 
 const drugsRouter = require("./Routes/drugs");
-const doctorRouter = require("./Routes/doctors.js");
-const appointmentRouter = require("./Routes/appointments.js");
-
 app.use("/newdrugs", drugsRouter);
+
+const doctorRouter = require("./Routes/doctors.js");
 app.use("/doctor", doctorRouter);
+
+const appointmentRouter = require("./Routes/appointments.js");
 app.use("/appointment", appointmentRouter);
+
+const userRouter = require("./Routes/users.js");
+app.use("/user",userRouter);
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
