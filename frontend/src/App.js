@@ -8,9 +8,9 @@ import ViewAddedDrugs from './components/OnlinePharmacy/ViewAddedDrugs';
 
 
 
-import OrderDrugs from './components/OrderDrugs';
-import Alluser from './components/Alluser';
-import OrderDetails from './components/OrderDetails';
+import OrderDrugs from './components/PrescribedMed/OrderDrugs';
+import Alluser from './components/PrescribedMed/Alluser';
+import OrderDetails from './components/PrescribedMed/OrderDetails';
 
 
 
@@ -47,7 +47,7 @@ function App() {
        <Route path="/" element = {<Alluser/>} />
        </Routes>
        <Routes>
-       <Route path="/add" element = {<OrderDrugs/>} />
+       <Route path="/prescribed" element = {<OrderDrugs/>} />
        </Routes>
        <Routes>
        <Route path="/order-details" element = {<OrderDetails/>} />

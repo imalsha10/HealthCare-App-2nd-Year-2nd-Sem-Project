@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Alluser.css';
-import { BsSearch } from 'react-icons/bs'; 
+//import { BsSearch } from 'react-icons/bs'; 
 
 export default function Alluser() {
   const [users, setUsers] = useState([]);
@@ -68,9 +68,7 @@ export default function Alluser() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <span className="input-group-text">
-          <BsSearch /> {/* Search icon */}
-        </span>
+       
       </div>
 
       <table className="table table-striped">
