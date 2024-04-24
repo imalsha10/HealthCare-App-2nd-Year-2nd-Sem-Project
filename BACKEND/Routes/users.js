@@ -1,14 +1,16 @@
 const router = require("express").Router();
 let User = require("../Models/User");
 
-router.route("/add").post((req,res)=>{
+router.route("/add").post( async (req,res)=>{
 
     const name=req.body.name;
     const number=req.body.number;
     const email=req.body.email;
     const province=req.body.province;
     const city=req.body.city;
-    const address =req.body.address;
+    const address =req.body.address
+    
+    
     
     
 
@@ -20,14 +22,18 @@ router.route("/add").post((req,res)=>{
         province,
         city,
         address
+        
+        
     
     })
-
-    newUser.save().then(()=>{
-        res.json("user added")
-    }).catch((err)=>{
+    try {
+        const savedUser = await newUser.save();
+        res.json({ message: "User added successfully", user: savedUser });
+    } catch (err) {
         console.log(err);
-    })
+    }
+    
+    
 
 })
 
@@ -41,14 +47,14 @@ router.route("/").get((req,res)=>{
 })
 
 router.route("/update/:id").put(async(req,res)=>{
-    let userId = req.params.id;
+    const userId = req.params.id;
 
     const{name,
         number,
         email,
         province,
         city,
-        address
+        address,
         
     }=req.body;
 
@@ -58,7 +64,9 @@ router.route("/update/:id").put(async(req,res)=>{
         email,
         province,
         city,
-        address
+        address,
+    
+        
         
     };
     const update = await User.findByIdAndUpdate(userId,updateUser).then(()=>{
@@ -91,3 +99,4 @@ router.route("/get/:id").get(async(req,res)=>{
     })
 })
 module.exports = router;
+

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Alluser.css';
-//import { BsSearch } from 'react-icons/bs'; 
+import { BsSearch } from 'react-icons/bs'; 
+import { saveAs } from 'file-saver';
+import * as XLSX from 'xlsx';
+import jsPDF from 'jspdf';
 
 export default function Alluser() {
   const [users, setUsers] = useState([]);
@@ -52,8 +55,24 @@ export default function Alluser() {
     }
   };
 
-  
-  // Filter users based on search query
+  const generateReport = () => {
+    // Creating PDF
+    const doc = new jsPDF();
+    let yPos = 10;
+    users.forEach(user => {
+      doc.text(`Name: ${user.name}, Number: ${user.number}, Email: ${user.email}, Province: ${user.province}, City: ${user.city}, Address: ${user.address}`, 10, yPos);
+      yPos += 10;
+    });
+    doc.save('user_report.pdf');
+
+    // Creating Excel
+    const ws = XLSX.utils.json_to_sheet(users);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Users');
+    const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    saveAs(new Blob([wbout]), 'user_report.xlsx');
+  };
+
   const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -68,7 +87,9 @@ export default function Alluser() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-       
+        <span className="input-group-text">
+          <BsSearch /> {/* Search icon */}
+        </span>
       </div>
 
       <table className="table table-striped">
@@ -93,6 +114,8 @@ export default function Alluser() {
               <td>{user.province}</td>
               <td>{user.city}</td>
               <td>{user.address}</td>
+              
+              
               <td>
                 <button className="btn btn-danger" onClick={() => handleDelete(user._id)}>Delete</button>
               </td>
@@ -103,6 +126,8 @@ export default function Alluser() {
           ))}
         </tbody>
       </table>
+
+      <button style={{margin:"50px"}} className="btn btn-success" onClick={generateReport}>Generate Report</button>
     </div>
   );
 }

@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import { isValidObjectId } from 'mongoose'; // Assuming you have Mongoose installed
+import './OrderDetails.css';
+
 
 export default function OrderDetails() {
   const location = useLocation();
   const [formData, setFormData] = useState(location.state || {});
   const [isEdit, setIsEdit] = useState(false);
+  const [userId, setUserId] = useState(null);
   const [error, setError] = useState(null);
+  
+
+  const {id} = useParams()
 
   useEffect(() => {
     if (location.state) {
       setFormData(location.state);
+      setUserId(id);  // Set userId state
+
     }
   }, [location.state]);
 
@@ -23,9 +32,14 @@ export default function OrderDetails() {
   };
 
   const handleConfirm = async () => {
+    
     if (window.confirm("Are you sure you want to update the data?")) {
+     
+     
+
       try {
-        const response = await axios.put(`http://localhost:8080/user/update/${formData._id}`, formData);
+       
+        const response = await axios.put(`http://localhost:8080/user/update/${userId}`, formData);
         if (response.data.status === "user updated") {
           alert("User updated successfully!");
           setIsEdit(false);
@@ -46,7 +60,9 @@ export default function OrderDetails() {
   };
 
   return (
-    <div className="container">
+    <div className="background3">
+      
+    <div className="container2">
       <h2>User Details</h2>
       {error && <div className="error">{error}</div>}
       <div className="customer-details">
@@ -76,6 +92,7 @@ export default function OrderDetails() {
               <strong>Address:</strong>
               <input type="text" name="address" value={formData.address} onChange={handleChange} />
             </p>
+            
           </>
         ) : (
           <>
@@ -85,6 +102,8 @@ export default function OrderDetails() {
             <p><strong>Province:</strong> {formData.province}</p>
             <p><strong>City:</strong> {formData.city}</p>
             <p><strong>Address:</strong> {formData.address}</p>
+            
+        
           </>
         )}
       </div>
@@ -98,10 +117,13 @@ export default function OrderDetails() {
             Edit
           </button>
         )}
-        <button className="btn btn-primary" disabled>
+        <button className="btn btn-primary" >
           Confirm
         </button>
       </div>
     </div>
+
+    </div>
   );
 }
+
