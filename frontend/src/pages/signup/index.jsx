@@ -40,7 +40,7 @@ const index = () => {
 
     if (!password) {
       isValid = false;
-      errors.password = "Password is required";
+      errors.password = "Password is requied";
     } else if (password.length < 6) {
       // Example: Minimum length check
       isValid = false;
