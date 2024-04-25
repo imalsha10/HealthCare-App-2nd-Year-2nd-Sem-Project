@@ -1,0 +1,4 @@
+export const USER_ROLES = {
+  PATIENT: "PATIENT",
+  LAB_ASSISTANT: "LAB_ASSISTANT",
+};
