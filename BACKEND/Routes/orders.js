@@ -4,20 +4,24 @@ let order = require("../Models/order");
 
 router.route("/place").post((req,res)=>{
     
+    const orderId = req.body.orderId
     const  firstname = req.body.firstname ;
     const  lastname = req.body.lastname ;
     const  address = req.body.address ;
-    const phoNumber = Number(req.body.phoNumber);
+    const phoNumber = req.body.phoNumber;
     const healthCode = req.body.healthCode ;
-    const noItems = Number(req.body.noItems);
+    const itemNames = req.body.itemNames;
+    const amount = Number(req.body.amount);
 
     const newOrder = new order({
+       orderId,
        firstname,
        lastname,
        address,
        phoNumber,
        healthCode,
-       noItems
+       itemNames,
+       amount
     })
 
     newOrder.save().then(()=>{
@@ -43,7 +47,7 @@ router.route("/vieworders").get((req,res)=>{
 
 router.route("/update/:id").put( async (req,res) => {
     let orderId = req.params.id ;
-    const {firstname,lastname,address,phoNumber,healthCode,noItems} = req.body ;
+    const {firstname,lastname,address,phoNumber,healthCode,itemNames} = req.body ;
 
     const updateOrder = {
         firstname,
@@ -51,7 +55,7 @@ router.route("/update/:id").put( async (req,res) => {
         address,
         phoNumber,
         healthCode,
-        noItems
+        itemNames
     }
 
      await order.findByIdAndUpdate(orderId,updateOrder).then(() =>{

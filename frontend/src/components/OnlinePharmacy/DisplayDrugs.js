@@ -62,14 +62,13 @@ export default function DisplayDrugs() {
                     size="small"  
                     variant='contained' 
                     style={{backgroundColor :'#002244'}}
-                    onClick={() => addToCart()}
+                    onClick={() => addToCart(drug)}
                     >Add To Cart</Button>
                 </CardActions>
             </Card>
            
        ))}
      </div>
-        <Cart cart={cart}/>
     </Container>
 
 
