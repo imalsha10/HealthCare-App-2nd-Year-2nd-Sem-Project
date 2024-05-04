@@ -21,6 +21,7 @@ export default  function SearchResult({searchResult}) {
       }
 
 
+
     return(
         <CartProvider>
         <Container style={{marginTop :40, marginLeft:'-39px'}}>
@@ -51,7 +52,7 @@ export default  function SearchResult({searchResult}) {
                         size="small"  
                         variant='contained' 
                         style={{backgroundColor :'#002244'}}
-                       
+                    
                         >Add To Cart</Button>
                     </CardActions>
     
