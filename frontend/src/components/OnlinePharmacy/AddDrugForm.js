@@ -152,7 +152,7 @@ export default function AddDrugForm (){
                     }}
                     />
                     <Container style={{marginLeft:'0px'}}>
-                       <Button variant="contained" style={{backgroundColor:'#29b6f6'}} onClick={sendData}>Add To Database</Button>
+                       <Button variant="contained" style={{backgroundColor:'#29b6f6'}} onClick={sendData}>Add Drug</Button>
                     </Container>
                   
                 
