@@ -59,6 +59,11 @@ app.post("/create-checkout-session", async (req,res) => {
 })
 
 
+//PrescribedMed
+const userRouter = require("./Routes/users");
+app.use("/user",userRouter);
+
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
