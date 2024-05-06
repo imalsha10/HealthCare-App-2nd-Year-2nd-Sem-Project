@@ -7,6 +7,7 @@ import AddDrugBtn from './components/OnlinePharmacy/AddDrugBtn';
 import AddDrugForm from './components/OnlinePharmacy/AddDrugForm';
 import Cart from './components/OnlinePharmacy/Cart';
 import DisplayDrugs from './components/OnlinePharmacy/DisplayDrugs';
+import PaySuccess from './components/OnlinePharmacy/PaySuccess';
 import PlaceOrder from './components/OnlinePharmacy/PlaceOrder';
 import SearchBar from './components/OnlinePharmacy/SearchBar';
 import SearchResult from './components/OnlinePharmacy/SearchResult';
@@ -20,7 +21,9 @@ import OrderHome from './components/PrescribedMed/OrderHome';
 import Alluser from './components/PrescribedMed/Alluser';
 import OrderDetails from './components/PrescribedMed/OrderDetails';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
+
 
 
 
@@ -37,6 +40,7 @@ function App() {
             <Route path='/onlinepharmacy' element={<AddDrugBtn/>}>
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
+               <Route path='viewOrders' element={<ViewOrders/>}/>
             </Route>
             <Route path='/onlinepharmacyP'element={<>
                <SearchBar/>
@@ -46,6 +50,7 @@ function App() {
             </Route>
             <Route path='/displayCart' element={<Cart/>}></Route>
             <Route path='/online-p/placeorder' element={<PlaceOrder/>}></Route>
+            <Route path='/online-p/paysuccess' element={<PaySuccess/>}></Route>
 
 
 

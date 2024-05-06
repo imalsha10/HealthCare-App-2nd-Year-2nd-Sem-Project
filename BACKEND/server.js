@@ -8,6 +8,8 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 8070 ;
 
+const stripe = require("stripe")(process.env.STRIPE_SECRET)
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -31,6 +33,30 @@ app.use("/newdrugs",drugsRouter);
 const ordersRouter = require("./Routes/orders");
 app.use("/neworders",ordersRouter);
 
+app.post("/create-checkout-session", async (req,res) => {
+    const {products} = req.body ;
+
+    const lineItems = products.map((product) => ({
+        price_data:{
+            currency:'usd',
+            product_data:{
+                name:product.name,
+            },
+            unit_amount: Math.round(product.price),
+        },
+        quantity:product.qty
+    }));
+
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types:['card'],
+        line_items:lineItems,
+        mode:"payment",
+        success_url:"http://localhost:3000/online-p/paysuccess",
+        cancel_url:"http://localhost:3000/onlinepharmacyP"
+    })
+
+    res.json({id:session.id})
+})
 
 const bloghRouter = require("./Routes/bloghs.js");
 
@@ -55,3 +81,5 @@ app.use("/user",userRouter);
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
 });
+
+

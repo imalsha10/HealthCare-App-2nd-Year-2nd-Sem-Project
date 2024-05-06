@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { json } = require("express");
 let order = require("../Models/order");
 
+
+
 router.route("/place").post((req,res)=>{
     
     const orderId = req.body.orderId
@@ -10,6 +12,7 @@ router.route("/place").post((req,res)=>{
     const  address = req.body.address ;
     const phoNumber = req.body.phoNumber;
     const healthCode = req.body.healthCode ;
+    const dateTime = req.body.dateTime ;
     const itemNames = req.body.itemNames;
     const amount = Number(req.body.amount);
 
@@ -20,6 +23,7 @@ router.route("/place").post((req,res)=>{
        address,
        phoNumber,
        healthCode,
+       dateTime,
        itemNames,
        amount
     })
@@ -37,6 +41,7 @@ router.route("/place").post((req,res)=>{
 router.route("/vieworders").get((req,res)=>{
 
     order.find({},{_id:0})
+    .sort({_id:-1})
     .then((drugs)=>{
           res.json(drugs)
     }).catch((err)=>{
@@ -77,6 +82,9 @@ router.route("/deleteorder/:id").delete( async (req,res) => {
     })
     
 })
+
+
+
 
 
 module.exports = router ;
