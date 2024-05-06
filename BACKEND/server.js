@@ -32,6 +32,19 @@ const ordersRouter = require("./Routes/orders");
 app.use("/neworders",ordersRouter);
 
 
+const bloghRouter = require("./Routes/bloghs.js");
+
+app.use("/blogh", bloghRouter);
+
+const eventRouter = require("./Routes/evenths.js");
+
+app.use("/eventh", eventRouter);
+
+const eventformRouter = require("./Routes/eventforms.js");
+
+app.use("/eventform", eventformRouter);
+
+
 
 //PrescribedMed
 const userRouter = require("./Routes/users");
