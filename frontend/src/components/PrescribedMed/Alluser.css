@@ -1,0 +1,27 @@
+
+.container {
+    display: flex; /* Make container a flexbox for better layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+  }
+
+.search-bar-container {
+    display: flex;
+    align-items: center; /* Align search bar and icon vertically */
+    margin: 80px 0; /* Add some margin for spacing */
+    width: 50%; /* Make container take full width */
+  }
+  
+  .search-bar {
+    flex: 1; /* Allow search bar to expand to fill available space */
+    padding: 5px 10px; /* Add padding for better look */
+    border: 1px solid #8d1b1b; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 14px; /* Adjust font size as needed */
+  }
+  
+  .input-group-text {
+    margin-left: 5px; /* Add margin for spacing between search bar and icon */
+    color: #ccc; /* Set icon color (gray in this case) */
+    font-size: 18px; /* Adjust icon size as needed */
+  }

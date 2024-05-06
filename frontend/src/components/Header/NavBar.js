@@ -15,10 +15,10 @@ function NavBar () {
                 <a className="nav-link"  href="/onlinepharmacy" style={{color:"black"}}>PA</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Prescribed Med</a>
+                <a className="nav-link"  href="/prescribed-m/OrderHome" style={{color:"black"}}>Prescribed Med</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>PM</a>
+                <a className="nav-link"  href="/prescribed-m/Alluser" style={{color:"black"}}>PM</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Dental</a>
