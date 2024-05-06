@@ -42,10 +42,10 @@ function NavBar () {
                 <a className="nav-link"  href="#" style={{color:"black"}}>Healthcare Plans</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Health-Blog</a>
+                <a className="nav-link"  href="/" style={{color:"black"}}>Health-Blog</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>HB</a>
+                <a className="nav-link"  href="/add" style={{color:"black"}}>HB</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Inquiries</a>

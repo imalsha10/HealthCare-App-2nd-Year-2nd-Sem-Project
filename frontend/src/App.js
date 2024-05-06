@@ -1,6 +1,8 @@
 
 import Header from './components/Header/Header';
 import NavBar from './components/Header/NavBar';
+import AddBlog from './components/HealthBlog/AddBlog';
+import AddCusForm from './components/HealthBlog/AddCusForm';
 import AddDrugBtn from './components/OnlinePharmacy/AddDrugBtn';
 import AddDrugForm from './components/OnlinePharmacy/AddDrugForm';
 import Cart from './components/OnlinePharmacy/Cart';
@@ -9,10 +11,13 @@ import PlaceOrder from './components/OnlinePharmacy/PlaceOrder';
 import SearchBar from './components/OnlinePharmacy/SearchBar';
 import SearchResult from './components/OnlinePharmacy/SearchResult';
 import ViewAddedDrugs from './components/OnlinePharmacy/ViewAddedDrugs';
-
-
+import ConfirmCus from './components/HealthBlog/ConfirmCus';
+import Updateevent from "./components/HealthBlog/UpdateCus";
+import ViewCus from "./components/HealthBlog/ViewCus";
+import ViewPage from "./components/HealthBlog/ViewPage";
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import AllBlogs from './components/HealthBlog/AllBlogs';
 
 
 
@@ -38,6 +43,17 @@ function App() {
             </Route>
             <Route path='/displayCart' element={<Cart/>}></Route>
             <Route path='/online-p/placeorder' element={<PlaceOrder/>}></Route>
+
+
+
+            <Route path="/add" element={<AddBlog />} />
+            <Route path="/addcus" element={<AddCusForm/>} />
+            <Route path="/getcus/:id" element={<ConfirmCus/>} />
+            <Route path="/updatecus/:id" element={<Updateevent />} />
+            <Route path="/getevent/:id" element={<ViewPage />} />
+            <Route path="/get/:id" element={<ViewPage />} />
+            <Route path="/cus" element={<ViewCus/>} />
+            <Route path="/" element={<AllBlogs />} />
 
           
             
