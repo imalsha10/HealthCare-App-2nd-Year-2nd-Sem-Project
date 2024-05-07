@@ -5,11 +5,13 @@ import { saveAs } from 'file-saver';
 import "../../css/view.css";
 import jsPDF from 'jspdf';
 import "jspdf-autotable";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 export default function Inquiry() {
   const navigate = useNavigate();
 
-
+  const MySwal = withReactContent(Swal);
   const [inquiries, setInquiries] = useState([]);
   const [selectedInquiry, setSelectedInquiry] = useState(null);
   const [replyMessage, setReplyMessage] = useState("");
@@ -65,10 +67,19 @@ export default function Inquiry() {
         msg,
       });
       console.log('Email sent successfully:', response.data);
-      alert('Email sent successfully!');
+      // alert('Email sent successfully!');
+      MySwal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Email sent successfully!',
+      });
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('An error occurred while sending the email. Please try again later.');
+      MySwal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred while sending the email. Please try again later.',
+      });
     }
   };
 
