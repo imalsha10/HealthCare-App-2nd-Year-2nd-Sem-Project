@@ -43,7 +43,7 @@ export default function Inquiry() {
         setType("");
         setMessage("");
         setEmailError("");
-        navigate('/add');
+        navigate('');
       })
       .catch((err) => {
         alert(err);

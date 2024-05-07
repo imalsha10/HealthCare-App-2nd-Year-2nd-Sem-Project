@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { saveAs } from 'file-saver';
 import "../../css/view.css";
+import jsPDF from 'jspdf';
+import  "jspdf-autotable";
 
 export default function Inquiry() {
   const navigate = useNavigate();
@@ -104,26 +106,35 @@ export default function Inquiry() {
   };
 
   const generateReport = () => {
-    const reportData = inquiries.map(inquiry => ({
-      ID: inquiry._id,
-      Name: inquiry.name,
-      Email: inquiry.email,
-      Phone: inquiry.phone,
-      Type: inquiry.type,
-      Message: inquiry.message,
-      ReplyMessage: inquiry.replyMessage || "No Reply"
-    }));
+    const doc = new jsPDF();
 
-    const fileName = 'inquiries_report.csv';
-    const headers = Object.keys(reportData[0]);
-    const csvContent = [
-      headers.join(','),
-      ...reportData.map(item => headers.map(header => item[header]).join(','))
-    ].join('\n');
+    // Add header
+    doc.setFontSize(18);
+    doc.text("Inquiries Report", 14, 15);
 
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    saveAs(blob, fileName);
+    // Add table headers
+    const headers = ["ID", "Name", "Email", "Phone", "Type", "Message", "Reply Message"];
+    const data = [];
+    const tableHeaders = headers.map((header, index) => {
+      return { title: header, dataKey: index.toString() };
+    });
+
+    // Prepare table data
+    inquiries.forEach((inquiry, index) => {
+      data.push([inquiry._id, inquiry.name, inquiry.email, inquiry.phone, inquiry.type, inquiry.message, inquiry.replyMessage || "No Reply"]);
+    });
+
+    // Set table format
+    doc.autoTable({
+      startY: 25,
+      head: [tableHeaders],
+      body: data
+    });
+
+    // Save the PDF
+    doc.save("inquiries_report.pdf");
   };
+
 
   const filteredInquiries = inquiries.filter((inquiry) => {
     const searchTerms = searchQuery.toLowerCase().split(" ");
