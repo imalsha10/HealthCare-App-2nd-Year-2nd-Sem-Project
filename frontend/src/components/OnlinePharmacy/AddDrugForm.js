@@ -89,7 +89,7 @@ export default function AddDrugForm (){
                 display:'flex',
                 flexDirection:'column',
                 gap:'16px',
-                '& .MuiTextField-root': { m: 1, width: '30%' },
+                '& .MuiTextField-root': { m: 1, width: '50%' },
             }}
             noValidate
             autoComplete="off"

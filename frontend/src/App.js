@@ -23,6 +23,7 @@ import OrderDetails from './components/PrescribedMed/OrderDetails';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
+import UpdateDrug from './components/OnlinePharmacy/UpdateDrug';
 
 
 
@@ -41,6 +42,7 @@ function App() {
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
                <Route path='viewOrders' element={<ViewOrders/>}/>
+               <Route path='updateDrug/:id' element={<UpdateDrug/>}/>
             </Route>
             <Route path='/onlinepharmacyP'element={<>
                <SearchBar/>
@@ -51,6 +53,7 @@ function App() {
             <Route path='/displayCart' element={<Cart/>}></Route>
             <Route path='/online-p/placeorder' element={<PlaceOrder/>}></Route>
             <Route path='/online-p/paysuccess' element={<PaySuccess/>}></Route>
+            
 
 
 

@@ -9,6 +9,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import axios  from 'axios';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import { Container } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -36,7 +38,7 @@ export default function ViewOrders() {
 
     const [orders, setOrders] = React.useState([]);
 
-   React.useEffect(()=>{
+   /*React.useEffect(()=>{
       function allOrders() {
           axios.get("http://localhost:8070/neworders/vieworders").then((res)=>{
               console.log(res.data);
@@ -46,7 +48,48 @@ export default function ViewOrders() {
           })
       }
       allOrders() 
-   },[])
+   },[])*/
+
+   React.useEffect(() => {
+    fetchOrders();
+    }, []);
+
+   const fetchOrders = () => {
+    axios.get("http://localhost:8070/neworders/vieworders")
+        .then((res) => {
+            console.log(res.data);
+            setOrders(res.data);
+        })
+        .catch((err) => {
+            alert(err.message);
+        });
+ };
+
+   const handleDelete = async (orderId) => {
+    try {
+      const confirmed = window.confirm("Are you sure you want to delete Order ?");
+      if(!confirmed){
+        return;
+      }
+
+        await axios.delete(`http://localhost:8070/neworders/deleteorder/${orderId}`).then(()=>{
+          alert("Order Deleted !");
+          fetchOrders();
+        });
+    } catch (error) {
+        console.error('Error deleting order:', error);
+    }
+ };
+
+ const generateReport = () => {
+  const doc = new jsPDF();
+  doc.autoTable({
+    head: [['Order ID', 'First Name', 'Last Name', 'Items Ordered', 'Date and Time', 'Phone No:']],
+    body: orders.map(order => [order.orderId, order.firstname, order.lastname, order.itemNames, order.dateTime]),
+  });
+  doc.save('user_report.pdf');
+};
+
 
 
     return (
@@ -57,7 +100,7 @@ export default function ViewOrders() {
           <TableRow>
             <StyledTableCell>Order ID</StyledTableCell>
             <StyledTableCell align="center">First Name</StyledTableCell>
-            <StyledTableCell align="center">Last Name</StyledTableCell>
+            <StyledTableCell align="center">Address</StyledTableCell>
             <StyledTableCell align="center">Date and Time</StyledTableCell>
             <StyledTableCell align="center">Items Ordered</StyledTableCell>
             <StyledTableCell align="center"></StyledTableCell>
@@ -70,11 +113,11 @@ export default function ViewOrders() {
                 {orders.orderId}
               </StyledTableCell>
               <StyledTableCell align="center">{orders.firstname}</StyledTableCell>
-              <StyledTableCell align="center">{orders.lastname}</StyledTableCell>
+              <StyledTableCell align="center">{orders.address}</StyledTableCell>
               <StyledTableCell align="center">{orders.dateTime}</StyledTableCell>
               <StyledTableCell align="center">{orders.itemNames}</StyledTableCell>
               <StyledTableCell align="center">
-                       <Button variant="contained" style={{background:'#29b6f6'}}>Delete</Button>
+                       <Button variant="contained" style={{background:'#29b6f6'}} onClick={() => handleDelete(orders.orderId)}>Delete</Button>
               </StyledTableCell>
             </StyledTableRow>
           ))}
@@ -82,7 +125,7 @@ export default function ViewOrders() {
       </Table>
     </TableContainer>
     <div style={{textAlign:'right', marginTop :'20px'}}>
-        <Button  variant='contained' style={{background:'#0047AB'}}>Generate Report</Button>
+        <Button  variant='contained' style={{background:'#0047AB'}} onClick={generateReport}>Generate Report</Button>
     </div>
     </Container>
      
