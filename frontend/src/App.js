@@ -23,6 +23,8 @@ import OrderDetails from './components/PrescribedMed/OrderDetails';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
+import GetInquiry from './components/Inquiries/getInquiry';
+import ViewInquiries from './components/Inquiries/viewInquiry';
 
 
 
@@ -62,6 +64,14 @@ function App() {
             <Route path="/get/:id" element={<ViewPage />} />
             <Route path="/cus" element={<ViewCus/>} />
             <Route path="/" element={<AllBlogs />} />
+
+
+
+
+            <Route path="/inquiry-i/get" element={<GetInquiry />} />
+            <Route path="/inquiry-i/add" element={<ViewInquiries />} />
+            
+
 
           
 
