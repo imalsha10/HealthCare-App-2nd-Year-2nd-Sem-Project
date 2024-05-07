@@ -26,7 +26,7 @@ export default function ConfirmCus() {
       .then((response) => {
         console.log("Participation details deleted successfully");
         alert("Participation details deleted successfully");
-        navigate("/"); // Navigate to desired page after deletion
+        navigate("/blog/allblogs"); // Navigate to desired page after deletion
       })
       .catch((error) => {
         console.error("Error deleting participation details:", error);
@@ -36,7 +36,7 @@ export default function ConfirmCus() {
  
   
   const handleEdit = () => {
-    navigate(`/updatecus/${id}`); // Navigate to EditDetails page with the appointment id
+    navigate(`/blog/updatecus/${id}`); // Navigate to EditDetails page with the appointment id
   };
 
   
@@ -187,7 +187,7 @@ export default function ConfirmCus() {
                                      >Cancel Participation
                                  </button>
 
-                                 <Link to="/" className="btn btn-primary" style={{ backgroundColor: '#890089' ,borderColor:"#890089"}}>Confirm</Link>
+                                 <Link to="/blog/allblogs" className="btn btn-primary" style={{ backgroundColor: '#890089' ,borderColor:"#890089"}}>Confirm</Link>
 
                                 
                               

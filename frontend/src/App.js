@@ -46,14 +46,14 @@ function App() {
 
 
 
-            <Route path="/add" element={<AddBlog />} />
-            <Route path="/addcus" element={<AddCusForm/>} />
-            <Route path="/getcus/:id" element={<ConfirmCus/>} />
-            <Route path="/updatecus/:id" element={<Updateevent />} />
-            <Route path="/getevent/:id" element={<ViewPage />} />
-            <Route path="/get/:id" element={<ViewPage />} />
-            <Route path="/cus" element={<ViewCus/>} />
-            <Route path="/" element={<AllBlogs />} />
+            <Route path="/blog/add" element={<AddBlog />} />
+            <Route path="/blog/addcus" element={<AddCusForm/>} />
+            <Route path="/blog/getcus/:id" element={<ConfirmCus/>} />
+            <Route path="/blog/updatecus/:id" element={<Updateevent />} />
+            <Route path="/blog/getevent/:id" element={<ViewPage />} />
+            <Route path="/blog/get/:id" element={<ViewPage />} />
+            <Route path="/blog/cus" element={<ViewCus/>} />
+            <Route path="/blog/allblogs" element={<AllBlogs />} />
 
           
             

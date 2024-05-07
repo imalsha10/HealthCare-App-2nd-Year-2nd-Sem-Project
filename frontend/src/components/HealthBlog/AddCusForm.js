@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import { useNavigate,Link } from "react-router-dom";
 import { successMessage } from "../HealthBlog/utils/Alert";
@@ -13,6 +13,8 @@ export default function AddCusForm() {
   const [email, setEmail] = useState("");
   const [eventid, setEventid] = useState("");
   const navigate = useNavigate();
+
+  
 
   const handleFocus = () => {
     setFocused(true);
@@ -35,7 +37,7 @@ export default function AddCusForm() {
       .then((response) => {
         successMessage("Success", "Participation Added");
         const participationId = response.data.data._id;
-        navigate(`/getcus/${participationId}`);
+        navigate(`/blog/getcus/${participationId}`);
       })
       .catch((err) => {
         alert(err.message);
@@ -158,10 +160,12 @@ export default function AddCusForm() {
         type="text"
         className="form-control"
         id="eventid"
-        placeholder="Enter Event id"
+        value={eventid}
+        placeholder="Enter Event Code here"
         onChange={(e) => {
           setEventid(e.target.value);
         }}
+        
         required
       />
     </div>
@@ -186,7 +190,7 @@ export default function AddCusForm() {
   
     <br/>
     <div style={{ marginBottom: '20px' }}>
-      <Link to="/" className="btn btn-primary" style={{ marginRight: '10px', backgroundColor: "#1434A4" }}>Go to Health Blog</Link>
+      <Link to="/blog/allblogs" className="btn btn-primary" style={{ marginRight: '10px', backgroundColor: "#1434A4" }}>Go to Health Blog</Link>
     </div>
   </div>
   

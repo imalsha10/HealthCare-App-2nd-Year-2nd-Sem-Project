@@ -43,7 +43,7 @@ export default function ViewPage() {
       .then((res) => {
         
         setViewEvent(null);
-        navigate("/");
+        navigate("/blog/allblogs");
 
       })
       .catch((err) => {
@@ -101,7 +101,7 @@ export default function ViewPage() {
                 >
                   Delete Blog
                 </button>
-              <Link to="/" className="btn btn-primary" style={{ display: 'inline-block', marginRight: '10px' }}>Go to Health Blog</Link>
+              <Link to="/blog/allblogs" className="btn btn-primary" style={{ display: 'inline-block', marginRight: '10px' }}>Go to Health Blog</Link>
               </div>
             </div>
           ) : viewEvent?.event ? (
@@ -137,10 +137,10 @@ export default function ViewPage() {
                 >
                   Delete Event
                 </button>
-                <Link to="/addcus" className="btn btn-success btn-send  pt-2 btn-block" style={{ display: 'inline-block', marginRight: '10px' }}>
+                <Link to="/blog/addcus" className="btn btn-success btn-send  pt-2 btn-block" style={{ display: 'inline-block', marginRight: '10px' }}>
                 Participate Event
               </Link>
-              <Link to="/" className="btn btn-primary" style={{ display: 'inline-block', marginRight: '10px' }}>Go to Health Blog</Link>
+              <Link to="/blog/allblogs" className="btn btn-primary" style={{ display: 'inline-block', marginRight: '10px' }}>Go to Health Blog</Link>
               </div>
             </div>
           ) : (
