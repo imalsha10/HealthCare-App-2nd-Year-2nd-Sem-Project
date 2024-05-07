@@ -27,6 +27,7 @@ connection.once("open", () => {
  console.log("MongoDB Connection successfull!");
 });
 
+//Online Pharmacy
 const drugsRouter = require("./Routes/drugs");
 app.use("/newdrugs",drugsRouter);
 
@@ -58,16 +59,14 @@ app.post("/create-checkout-session", async (req,res) => {
     res.json({id:session.id})
 })
 
+//Health Blog
 const bloghRouter = require("./Routes/bloghs.js");
-
 app.use("/blogh", bloghRouter);
 
 const eventRouter = require("./Routes/evenths.js");
-
 app.use("/eventh", eventRouter);
 
 const eventformRouter = require("./Routes/eventforms.js");
-
 app.use("/eventform", eventformRouter);
 
 
