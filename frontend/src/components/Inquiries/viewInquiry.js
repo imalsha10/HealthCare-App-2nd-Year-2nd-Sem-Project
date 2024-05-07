@@ -4,7 +4,7 @@ import axios from "axios";
 import { saveAs } from 'file-saver';
 import "../../css/view.css";
 import jsPDF from 'jspdf';
-import  "jspdf-autotable";
+import "jspdf-autotable";
 
 export default function Inquiry() {
   const navigate = useNavigate();
@@ -49,38 +49,26 @@ export default function Inquiry() {
     setReplyMessage(e.target.value);
   };
 
-  const sendReplyEmail = async () => {
+
+
+  const handleReplySubmit = async (id, msg) => {
+
+    // console.log(msg);
+    if (!msg) {
+      console.error("Please enter your email content");
+      return;
+    }
+  
     try {
-      const response = await axios.post('http://localhost:8070/send-email', {
-        replyMessage,
-        customerEmail: selectedInquiry.email,
+      const response = await axios.post('http://localhost:8070/inquiry/send-email', {
+        id,
+        msg,
       });
       console.log('Email sent successfully:', response.data);
       alert('Email sent successfully!');
     } catch (error) {
       console.error('Error sending email:', error);
       alert('An error occurred while sending the email. Please try again later.');
-    }
-  };
-
-  const handleReplySubmit = async () => {
-    if (!selectedInquiry) {
-      console.error("No inquiry selected for reply.");
-      return;
-    }
-
-    try {
-      const updatedInquiry = { ...selectedInquiry, replyMessage };
-      const updatedInquiries = inquiries.map((inquiry) =>
-        inquiry._id === selectedInquiry._id ? updatedInquiry : inquiry
-      );
-      setInquiries(updatedInquiries);
-      await sendReplyEmail();
-      setReplyMessage(""); // Clear reply message input field
-      closeModal(); // Close the modal after submitting the reply
-    } catch (error) {
-      console.error("Error updating inquiry with reply:", error);
-      alert("An error occurred while updating the inquiry with reply. Please try again later.");
     }
   };
 
@@ -226,10 +214,10 @@ export default function Inquiry() {
               </div>
               <div className="form-group">
                 <label htmlFor="inputReply"></label>
-                <textarea className="form-control" id="inputReply" value={replyMessage} onChange={handleReplyChange} placeholder="Reply Message" />
+                <textarea className="form-control" id="inputReply" placeholder="Reply Message" />
               </div>
               <div>
-                <button className="btn btn-primary" onClick={handleReplySubmit}>Submit Reply</button>
+              <button className="btn btn-primary" onClick={() => handleReplySubmit(selectedInquiry,document.getElementById('inputReply').value)}>Submit Reply</button>
               </div>
             </div>
             <div>
