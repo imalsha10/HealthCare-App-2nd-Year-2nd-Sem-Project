@@ -182,7 +182,7 @@ export default function Inquiry() {
                   <td>{inquiry.phone}</td>
                   <td>{inquiry.type}</td>
                   <td>{inquiry.message}</td>
-                  <td>{inquiry.replyMessage}</td> {/* Display the reply message */}
+                  <td>{inquiry.reply}</td> {/* Display the reply message */}
                   <td>
                     <div className="button-container">
                       <button className="button view" onClick={() => handleView(inquiry._id)}>View</button>

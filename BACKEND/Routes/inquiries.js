@@ -101,6 +101,7 @@ router.post('/send-email', async (req, res) => {
         };
 
         await transporter.sendMail(mailOptions);
+        const updatedInquiry = await Inquiry.findByIdAndUpdate(id._id, { reply: msg }, { new: true });
         
         // Respond with success message
         res.status(200).json({ message: 'Email sent successfully' });

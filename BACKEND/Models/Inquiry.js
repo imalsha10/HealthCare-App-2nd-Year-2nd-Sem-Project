@@ -28,6 +28,10 @@ const inquirySchema = new Schema({
         type: String,
         required: true
     },
+    reply: {
+        type: String,
+        required: true
+    },
 
 })
 
