@@ -227,12 +227,14 @@ export default function AllBlogs() {
         <p className="summary" style={{ fontSize: "14px" }}>{event.eventsummary}</p>
         <br/>
         <Link
-         to= "/blog/addcus"
-      className="btn btn-primary"
-      style={{ color: 'white', fontSize: '14px' }}
-     >
-       Participate Event
-     </Link>
+        to={{
+         pathname: `/blog/addcus/${event.eventcode}`
+         }}
+         className="btn btn-primary"
+         style={{ color: 'white', fontSize: '14px' }}
+        >
+          Participate Event
+        </Link>
       </div>
     </div>
   ))}

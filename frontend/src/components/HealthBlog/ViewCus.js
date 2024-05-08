@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/AddBlogs.css";
-//import jsPDF from "jspdf";
-//import "jspdf-autotable";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default function ViewCus() {
   const [viewdetails, setViewdetails] = useState([]);
@@ -17,7 +17,6 @@ export default function ViewCus() {
         .get("http://localhost:8070/eventform/cus")
         .then((res) => {
           setViewdetails(res.data);
-
           setTotalCount(res.data.length);
         })
         .catch((err) => {
@@ -42,7 +41,7 @@ export default function ViewCus() {
       });
   };
 
-  /*const generateReport = () => {
+  const generateReport = () => {
     const doc = new jsPDF();
   
     // Add header
@@ -61,6 +60,9 @@ export default function ViewCus() {
       (detail) => selectedEventId === "" || detail.eventid === selectedEventId
     );
   
+    // Add total participants count to the report
+    doc.text(`Total Participants: ${filteredDetails.length}`, 14, 30);
+  
     // Add table header
     const headers = [['Full Name', 'Age', 'Phone Number', 'Email', 'Event ID']];
   
@@ -69,18 +71,15 @@ export default function ViewCus() {
   
     // AutoTable plugin to generate table
     doc.autoTable({
-      startY: 30, // Adjusted startY to make space for the date and time
+      startY: 40, // Adjusted startY to make space for the total participants count
       head: headers,
       body: data,
     });
   
     doc.save("Event_appointments_report.pdf");
-  }; */
+  };
   
-  
-  
-
-  const handleEventIdChange = (event) => {
+ const handleEventIdChange = (event) => {
     setSelectedEventId(event.target.value);
 
     const filteredDetails = viewdetails.filter(
@@ -104,6 +103,20 @@ export default function ViewCus() {
         <nav>
         <Link to="/blog/add" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none', marginRight: '10px' }}>Create Blog or Event</Link>
         <Link to="/blog/allblogs" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none' }}>Health Blog</Link>
+
+        <div className="generate-report-btn">
+            <button className="btn btn-primary" style={{ backgroundColor: '#890089' ,
+            borderColor:"#890089",
+            color: 'white', 
+            padding: '10px 20px',
+            borderRadius: '5px', 
+            textDecoration: 'none'}} 
+            onClick={generateReport}>
+
+              Generate Report
+
+            </button>
+          </div>
 
          
         </nav>

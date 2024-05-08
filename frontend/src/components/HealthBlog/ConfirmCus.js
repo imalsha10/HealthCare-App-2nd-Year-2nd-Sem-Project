@@ -20,19 +20,7 @@ export default function ConfirmCus() {
       });
   }, [id]);
 
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:8070/eventform/deletecus/${id}`)
-      .then((response) => {
-        console.log("Participation details deleted successfully");
-        alert("Participation details deleted successfully");
-        navigate("/blog/allblogs"); // Navigate to desired page after deletion
-      })
-      .catch((error) => {
-        console.error("Error deleting participation details:", error);
-        alert(error.message);
-      });
-  };
+  
  
   
   const handleEdit = () => {
@@ -179,13 +167,7 @@ export default function ConfirmCus() {
                                     Edit Details
                                   </button>
 
-                                  <button
-                                      id="delete-details-button"
-                                      className="btn btn-danger mr-2"
-                                      onClick={handleDelete}
-                                      style={{ marginRight: '10px' }}
-                                     >Cancel Participation
-                                 </button>
+                                 
 
                                  <Link to="/blog/allblogs" className="btn btn-primary" style={{ backgroundColor: '#890089' ,borderColor:"#890089"}}>Confirm</Link>
 

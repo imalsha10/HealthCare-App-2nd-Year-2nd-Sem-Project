@@ -2,12 +2,12 @@ const router = require("express").Router();
 
 let Eventform = require("../Models/Eventform");
 
-router.route("/addcus").post((req, res) => {
+router.route("/addcus/:eventId").post((req, res) => {
   const fullname = req.body.fullname;
   const age = req.body.age;
   const phonenumber = req.body.phonenumber;
   const email = req.body.email;
-  const eventid = req.body.eventid;
+  const eventid = req.body.eventId;
 
   const newEventform = new Eventform({
     fullname,

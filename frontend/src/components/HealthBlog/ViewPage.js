@@ -137,7 +137,7 @@ export default function ViewPage() {
                 >
                   Delete Event
                 </button>
-                <Link to="/blog/addcus" className="btn btn-success btn-send  pt-2 btn-block" style={{ display: 'inline-block', marginRight: '10px' }}>
+                <Link to= {{pathname:`/blog/addcus/${viewEvent.event.eventcode}`}} className="btn btn-success btn-send  pt-2 btn-block" style={{ display: 'inline-block', marginRight: '10px' }}>
                 Participate Event
               </Link>
               <Link to="/blog/allblogs" className="btn btn-primary" style={{ display: 'inline-block', marginRight: '10px' }}>Go to Health Blog</Link>

@@ -50,7 +50,7 @@ function App() {
 
 
             <Route path="/blog/add" element={<AddBlog />} />
-            <Route path="/blog/addcus" element={<AddCusForm/>} />
+            <Route path="/blog/addcus/:eventId" element={<AddCusForm/>} />
             <Route path="/blog/getcus/:id" element={<ConfirmCus/>} />
             <Route path="/blog/updatecus/:id" element={<Updateevent />} />
             <Route path="/blog/getevent/:id" element={<ViewPage />} />
