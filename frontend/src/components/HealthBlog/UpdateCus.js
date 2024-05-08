@@ -55,7 +55,7 @@ export default function UpdateCus() {
       .then((response) => {
         console.log("Participation updated:", response.data);
         alert("Confirm Participation");
-        navigate("/");
+        navigate("/blog/allblogs");
       })
       .catch((err) => {
         alert("Error updating appointment: " + err);
@@ -64,7 +64,7 @@ export default function UpdateCus() {
 
   return (
     <div className="main-container" style={{ 
-      backgroundImage: 'url("https://img.freepik.com/premium-vector/blue-background-with-line-blur-vector-illustration_176456-642.jpg")',
+      backgroundImage: 'url("https://img.freepik.com/free-photo/elegant-white-background-with-blue-wave-lines_1017-32741.jpg?t=st=1714910283~exp=1714913883~hmac=c681016ba767c121f58becf9b05631f85caeebe658e8ba63a62ac9a3fb6c566d&w=1380")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       padding: '20px', 
@@ -204,9 +204,7 @@ export default function UpdateCus() {
                                   name="eventid"
                                   className="form-control"
                                   value={eventid}
-                                  onChange={(event) => {
-                                    setEventid(event.target.value);
-                                  }}
+                                  readOnly
                                   required
                                 />
                               
