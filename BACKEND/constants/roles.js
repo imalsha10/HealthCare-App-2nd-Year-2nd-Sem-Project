@@ -1,0 +1,6 @@
+const USER_ROLES = {
+  PATIENT: "PATIENT",
+  LAB_ASSISTANT: "LAB_ASSISTANT",
+};
+
+module.exports = USER_ROLES;
