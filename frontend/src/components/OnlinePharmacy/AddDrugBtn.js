@@ -21,6 +21,9 @@ export default function AddDrugBtn() {
             <Link to="/onlinepharmacy/viewDrug">
                <Button variant="contained" style={{backgroundColor:'#D22B2B'}}>View Recently Added</Button>
             </Link>
+            <Link to="/onlinepharmacy/viewOrders">
+               <Button variant="contained" style={{backgroundColor:'#D22B2B',marginLeft:'400px'}}>View Orders</Button>
+            </Link>
           </Stack>
         </div>
         <Outlet/>

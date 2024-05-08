@@ -15,10 +15,10 @@ function NavBar () {
                 <a className="nav-link"  href="/onlinepharmacy" style={{color:"black"}}>PA</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Prescribed Med</a>
+                <a className="nav-link"  href="/prescribed-m/OrderHome" style={{color:"black"}}>Prescribed Med</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>PM</a>
+                <a className="nav-link"  href="/prescribed-m/Alluser" style={{color:"black"}}>PM</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Dental</a>
@@ -42,10 +42,10 @@ function NavBar () {
                 <a className="nav-link"  href="#" style={{color:"black"}}>Healthcare Plans</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Health-Blog</a>
+                <a className="nav-link"  href="/blog/allblogs" style={{color:"black"}}>Health-Blog</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>HB</a>
+                <a className="nav-link"  href="/blog/add" style={{color:"black"}}>HB</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Inquiries</a>

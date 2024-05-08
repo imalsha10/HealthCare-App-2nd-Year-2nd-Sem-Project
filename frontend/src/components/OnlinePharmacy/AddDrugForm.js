@@ -89,7 +89,7 @@ export default function AddDrugForm (){
                 display:'flex',
                 flexDirection:'column',
                 gap:'16px',
-                '& .MuiTextField-root': { m: 1, width: '30%' },
+                '& .MuiTextField-root': { m: 1, width: '50%' },
             }}
             noValidate
             autoComplete="off"
@@ -152,7 +152,7 @@ export default function AddDrugForm (){
                     }}
                     />
                     <Container style={{marginLeft:'0px'}}>
-                       <Button variant="contained" style={{backgroundColor:'#29b6f6'}} onClick={sendData}>Add To Database</Button>
+                       <Button variant="contained" style={{backgroundColor:'#29b6f6'}} onClick={sendData}>Add Drug</Button>
                     </Container>
                   
                 
