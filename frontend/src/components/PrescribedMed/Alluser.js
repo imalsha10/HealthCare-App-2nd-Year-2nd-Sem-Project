@@ -11,7 +11,7 @@ export default function Alluser() {
 
   useEffect(() => {
     function getUsers() {
-      axios.get("http://localhost:8080/user/")
+      axios.get("http://localhost:8070/user/")
         .then((res) => {
           setUsers(res.data);
         })
@@ -25,7 +25,7 @@ export default function Alluser() {
   const handleDelete = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        const response = await axios.delete(`http://localhost:8080/user/delete/${userId}`);
+        const response = await axios.delete(`http://localhost:8070/user/delete/${userId}`);
         if (response.data.status === "User deleted") {
           alert("User deleted successfully!");
           // Update the user list after deletion
@@ -42,7 +42,7 @@ export default function Alluser() {
 
   const handleSendEmail = async (email) => {
     try {
-      const response = await axios.post("http://localhost:8080/send-email", {
+      const response = await axios.post("http://localhost:8070/send-email", {
         email,
         subject: "Pay for medicines",
         message: "Please make a payment for medicines."
