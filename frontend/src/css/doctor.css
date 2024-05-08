@@ -1,0 +1,48 @@
+.add-doctor-container {
+    max-width: 700px;
+    /* Set maximum width for the form */
+    margin: 0 auto;
+    /* Center the form horizontally */
+    padding: 20px;
+    /* Add some padding for better spacing */
+}
+
+.Docitem {
+    margin-bottom: 10px;
+    /* Adjust as needed */
+}
+
+.Docitem label {
+    display: inline-block;
+    width: 100px;
+    /* Adjust label width as needed */
+}
+
+.Docitem input {
+    width: calc(100% - 100px);
+    /* Adjust input width as needed */
+}
+
+.btn-primary {
+    padding: 6px 12px;
+    /* Adjust padding as needed */
+    font-size: 16px;
+    /* Adjust font size as needed */
+    border-radius: 5px;
+    /* Adjust border radius as needed */
+}
+
+.view-doctors-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2069b6;
+    color: white;
+    padding: 5px 10px;
+    /* Adjust padding as needed */
+    border-radius: 3px;
+    /* Adjust border radius as needed */
+    font-size: 12px;
+    /* Adjust font size as needed */
+    text-decoration: none;
+}

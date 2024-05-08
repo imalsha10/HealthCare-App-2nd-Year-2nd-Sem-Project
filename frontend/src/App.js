@@ -29,6 +29,27 @@ import AllBlogs from './components/HealthBlog/AllBlogs';
 
 
 
+
+
+
+
+
+
+
+
+
+
+import Adddoctor from "./components/ConsultantCare/Adddoctor";
+import DoctorView from "./components/ConsultantCare/DoctorView";
+import CreateAppointment from "./components/ConsultantCare/CreateAppointment";
+import Appointments from "./components/ConsultantCare/Appointments";
+import AppointmentDetails from "./components/ConsultantCare/AppointmentDetails";
+import UpdateAppointment from "./components/ConsultantCare/UpdateAppointment";
+
+
+
+
+
 function App() {
   return (
     <Router>
@@ -71,8 +92,31 @@ function App() {
             <Route path="/order-details/:id" element={<OrderDetails />} />
              {/* Default route */}
             <Route path="*" element={<Alluser />} />
+             
+            
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Route path="/consultant/doctorview" element={<DoctorView />} />
+            <Route path="/consultant/add" element={<Adddoctor />} />
+            <Route path="/consultant/view" element={<Appointments />} />
+            <Route path="/consultant/addapp" element={<CreateAppointment />} />
+            <Route path="/consultant/updateAppointment/:id"element={<UpdateAppointment/>}></Route>
+            <Route path="/consultant/appointmentDetails/:id"element={<AppointmentDetails />}></Route>
 
             
           </Routes>

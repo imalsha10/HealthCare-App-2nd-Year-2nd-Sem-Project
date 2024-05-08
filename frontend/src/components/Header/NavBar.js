@@ -27,7 +27,7 @@ function NavBar () {
                 <a className="nav-link"  href="#" style={{color:"black"}}>DA</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Consultant Care</a>
+                <a className="nav-link"  href="/consultant/doctorview" style={{color:"black"}}>Consultant Care</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>AH</a>

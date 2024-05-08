@@ -1,0 +1,108 @@
+span {
+    font-size: 15px;
+    padding: 6px;
+    color: red;
+    display: none;
+}
+
+input:invalid[focused="true"] {
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"]~span {
+    display: block;
+}
+
+.image-and-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container {
+    flex: 1;
+    padding-right: 20px;
+    /* Adjust spacing between form and image */
+}
+
+.image-container {
+    flex: 1;
+    max-width: 50%;
+    /* You can adjust this value based on your layout */
+}
+
+.controls {
+    flex: 1;
+    max-width: 500%;
+    /* Adjust this value to control the width of the form column */
+    padding-left: 20px;
+    /* Add some padding for spacing */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    width: 150%;
+    /* Ensure the image fills its container */
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the container */
+}
+
+.card {
+    display: flex;
+    height: 100%;
+}
+
+.card-container {
+    width: 200%;
+    /* Adjust the width as needed */
+    margin: auto;
+    /* Center the card container horizontally */
+}
+
+.card-body {
+    flex: 1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: calc(100% - 10px); /* Use calc() to subtract padding from the width */
+    max-width: 800px; /* Set a maximum width to avoid overly wide inputs */
+    height: 44px; /* Adjust the height of the input fields */
+    padding: 15px; /* Adjust padding for spacing inside the inputs */
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 20px; /* Add margin between input fields */
+}
+
+
+
+
+.corner-image {
+    position: absolute;
+    top: 400px;
+    bottom: 50px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    width: 400px; /* Adjust the width as needed */
+    height: 600px; /* Maintains aspect ratio */
+    z-index: 999; /* Ensures the image stays on top */
+  }
+  
+.form-container {
+    flex: 1;
+}
+
+.card {
+    max-width: 600px;
+    background-color: #8db2d5; /* Example background color */
+    /* Additional styles as needed */
+}
+
+
+.btn-send {
+    background-color: blue;
+    color: white;
+    /* Additional styles as needed */
+}
