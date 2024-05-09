@@ -16,7 +16,7 @@ function NavBar2 () {
                 <a className="nav-link"  href="#" style={{color:"black"}}>Prescribed Orders</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Dental Management</a>
+                <a className="nav-link"  href="/dental/dentalGet" style={{color:"black"}}>Dental Management</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Consultant App</a>

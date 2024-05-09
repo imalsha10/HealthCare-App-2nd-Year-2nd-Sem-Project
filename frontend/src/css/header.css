@@ -1,16 +1,37 @@
-.navbar {
-    display: inline-flexbox; 
-    padding-left: 30px; 
-  }
-  
-  .navbar img {
-     display: block;
-     margin-right: 10px;
-     width: 85px;
-     height: 78px;
-  }
+/* header.css */
 
-  .navbar h3 {
-    margin: 0; 
-    font-family: sans-serif;
-  }
+.navbar {
+  background-color: #f0f0f0; /* Change this color to your desired background color */
+  padding-top: 15px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-content {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333; /* Change this color to your desired text color */
+}
+
+.navbar-brand img {
+  width: 85px; /* Adjust the width of the logo image */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Adjust spacing between logo and text */
+}
+
+.navbar-brand h3 {
+  margin-left: 20px;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 10px;
+  font-size: 3rem; /* Adjust font size as needed */
+}

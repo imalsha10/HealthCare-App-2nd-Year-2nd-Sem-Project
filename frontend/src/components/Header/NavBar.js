@@ -21,10 +21,10 @@ function NavBar () {
                 <a className="nav-link"  href="/prescribed-m/Alluser" style={{color:"black"}}>PM</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Dental</a>
+                <a className="nav-link"  href="/dental/dentalHome" style={{color:"black"}}>Dental</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>DA</a>
+                <a className="nav-link"  href="/dental/dentalGet" style={{color:"black"}}>DA</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="/consultant/doctorview" style={{color:"black"}}>Consultant Care</a>
