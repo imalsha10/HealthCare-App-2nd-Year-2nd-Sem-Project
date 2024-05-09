@@ -28,13 +28,27 @@ export default function PlaceOrder() {
   const formattedString = formattedItems.toString();
   const correctDateTime = currentDateAndTime.toString();
 
-
+  console.log(cart)
 
   React.useEffect(() => {
     setAmount(total);
     setItemNames(formattedString);
     setDateTime(correctDateTime);
   }, [total, formattedString,correctDateTime]);
+
+
+  async function updateStockQuantities(cart) {
+    try {
+      for (const item of cart) {
+        const newStockQuantity = item.quantity - item.qty;
+  
+        await axios.put(`http://localhost:8070/newdrugs/quantity/${item._id}`, { quantity : newStockQuantity });
+      }
+      console.log("Stock quantities updated successfully");
+    } catch (error) {
+      console.error("Failed to update stock quantities:", error);
+    }
+  }
   
   function sendData(e) {
     e.preventDefault();
@@ -54,7 +68,7 @@ export default function PlaceOrder() {
 
     axios.post("http://localhost:8070/neworders/place", newOrder).then(() =>{
        alert("Order Confirmed!");
-    
+       updateStockQuantities(cart)
        
     }).catch(()=>{
        alert("Order Failed!")

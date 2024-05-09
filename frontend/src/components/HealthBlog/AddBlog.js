@@ -135,8 +135,8 @@ export default function AddBlog() {
       <div className="topic" style={{color:'black'}}>Health Blog</div>
         
         <nav>
-          <Link to="/" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none', marginRight: '10px' }}>Health Blog</Link>
-          <Link to="/cus" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none' }}>Participation Details </Link>
+          <Link to="/blog/allblogs" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none', marginRight: '10px' }}>Health Blog</Link>
+          <Link to="/blog/cus" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none' }}>Participation Details </Link>
           </nav>
       </header>
 

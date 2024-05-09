@@ -1,0 +1,39 @@
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    /* Limit width if needed */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.order-section-one-container,
+.order-section-two-container {
+    margin-bottom: 20px;
+}
+
+
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.appointments-table th,
+.appointments-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.appointments-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+
+.order-table-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.order-table-row:hover {
+    background-color: #ddd;
+}

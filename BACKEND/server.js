@@ -99,12 +99,21 @@ const userRouter = require("./Routes/users");
 app.use("/user",userRouter);
 
 
+
 //Dental Services
 const serviceRouter = require("../BACKEND/Routes/services");
 app.use("/services", serviceRouter);
 
 const patientRouter = require("../BACKEND/Routes/patients");
 app.use("/patients", patientRouter);
+
+
+//consultantcare
+const doctorRouter = require("./Routes/doctors.js");
+app.use("/doctor", doctorRouter);
+
+const appointmentRouter = require("./Routes/appointments.js");
+app.use("/appointment", appointmentRouter);
 
 
 

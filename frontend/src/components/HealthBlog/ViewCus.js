@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/AddBlogs.css";
-//import jsPDF from "jspdf";
-//import "jspdf-autotable";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default function ViewCus() {
   const [viewdetails, setViewdetails] = useState([]);
   const [selectedEventId, setSelectedEventId] = useState("");
+  const [totalCount, setTotalCount] = useState(0);
+
 
   useEffect(() => {
     function getviewdetails() {
@@ -15,6 +17,7 @@ export default function ViewCus() {
         .get("http://localhost:8070/eventform/cus")
         .then((res) => {
           setViewdetails(res.data);
+          setTotalCount(res.data.length);
         })
         .catch((err) => {
           alert(err.message);
@@ -30,6 +33,7 @@ export default function ViewCus() {
         setViewdetails(
           viewdetails.filter((viewdetailcus) => viewdetailcus._id !== id)
         );
+        setTotalCount((prevCount) => prevCount - 1);
         alert("Successfully Deleted");
       })
       .catch((err) => {
@@ -37,32 +41,51 @@ export default function ViewCus() {
       });
   };
 
-  /*const generateReport = () => {
+  const generateReport = () => {
     const doc = new jsPDF();
   
     // Add header
     doc.setFontSize(20);
     doc.text("Event Participation Report", 14, 15);
-    
+  
+    // Add date and time of report generation
+    const currentDate = new Date();
+    const dateString = currentDate.toLocaleDateString();
+    const timeString = currentDate.toLocaleTimeString();
+    doc.setFontSize(10);
+    doc.text(`Report generated on: ${dateString} at ${timeString}`, 16, 22);
+  
+    // Filter viewdetails based on selected event code
+    const filteredDetails = viewdetails.filter(
+      (detail) => selectedEventId === "" || detail.eventid === selectedEventId
+    );
+  
+    // Add total participants count to the report
+    doc.text(`Total Participants: ${filteredDetails.length}`, 14, 30);
+  
     // Add table header
     const headers = [['Full Name', 'Age', 'Phone Number', 'Email', 'Event ID']];
-    
+  
     // Add table data
-    const data = viewdetails.map(({ fullname, age, phonenumber, email, eventid }) => [fullname, age, phonenumber, email, eventid]);
-    
+    const data = filteredDetails.map(({ fullname, age, phonenumber, email, eventid }) => [fullname, age, phonenumber, email, eventid]);
+  
     // AutoTable plugin to generate table
     doc.autoTable({
-      startY: 25,
+      startY: 40, // Adjusted startY to make space for the total participants count
       head: headers,
       body: data,
     });
   
-    doc.save("appointments_report.pdf");
-  };*/
+    doc.save("Event_appointments_report.pdf");
+  };
   
-
-  const handleEventIdChange = (event) => {
+ const handleEventIdChange = (event) => {
     setSelectedEventId(event.target.value);
+
+    const filteredDetails = viewdetails.filter(
+      (detail) => event.target.value === "" || detail.eventid === event.target.value
+    );
+    setTotalCount(filteredDetails.length);
   };
 
   const uniqueEventIds = Array.from(
@@ -78,15 +101,32 @@ export default function ViewCus() {
       <header>
         <div className="topic">Health Blog</div>
         <nav>
-        <Link to="/add" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none', marginRight: '10px' }}>Create Blog or Event</Link>
-        <Link to="/" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none' }}>Health Blog</Link>
+        <Link to="/blog/add" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none', marginRight: '10px' }}>Create Blog or Event</Link>
+        <Link to="/blog/allblogs" style={{ backgroundColor: 'darkblue', color: 'white', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none' }}>Health Blog</Link>
 
-          
+        <div className="generate-report-btn">
+            <button className="btn btn-primary" style={{ backgroundColor: '#890089' ,
+            borderColor:"#890089",
+            color: 'white', 
+            padding: '10px 20px',
+            borderRadius: '5px', 
+            textDecoration: 'none'}} 
+            onClick={generateReport}>
 
+              Generate Report
+
+            </button>
+          </div>
+
+         
         </nav>
       </header>
 
-      <h3 style={{ textAlign: 'center', color: 'darkblue' ,fontSize:'50px'}}>Event Participation Details</h3>
+      <h3 style={{ textAlign: 'center', color: 'darkblue' ,fontSize:'50px'}}>Event Participation Details
+      <span style={{ color:'black', fontSize: "20px", marginLeft: "20px" }}>
+            Total Participants: {totalCount}
+          </span>
+      </h3>
 
       <div className="form-group mb-2">
         <label htmlFor="eventid form-label" style={{fontSize:"20px",fontFamily:"Arial"}}>Select Event ID:</label>

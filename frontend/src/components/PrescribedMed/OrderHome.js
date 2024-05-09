@@ -24,7 +24,7 @@ function OrderHome(){
   <div class="row">
     <div class="col">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHJuDfhbtTlRcJTUvrCqbxtOfj3mtvzX06bSkC5xylHMEHdDa2AGNslC0iHjeGMC19ynk&usqp=CAU" style={{width:'50%'}}/>
-      <p class="fw-bold" >1. Sign up for Amazon Pharmacy</p>
+      <p class="fw-bold" >1. Sign up for Rathnam hospital</p>
       <p>It’s simple. And free, always.Sign in or sign up to get started</p>
     </div>
     <div class="col">
@@ -34,8 +34,8 @@ function OrderHome(){
     </div>
     <div class="col">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4EqltCQQfKh2L8ng6KVLcUlG1W55fGjfdDFX5lFIFCRTYOFqZvcZiOG5bzZDp3DGrs4&usqp=CAU" style={{width:'50%'}}/>
-      <p class="fw-bold">2. We’ll get your prescription</p>
-      <p>We can work with your insurance and current pharmacy to get your prescription.</p>
+      <p class="fw-bold">3.Pick up meds</p>
+      <p>Pick up your drugs from the pharmacy</p>
     </div>
    </div>
    </div>
@@ -62,7 +62,7 @@ function OrderHome(){
     </div>
     
   </div>
-  <a href="" style={{marginTop:"100px"}}>click hear to read more</a>
+  <a href="./prescribed-m/Pharmacydetails" style={{marginTop:"100px"}}>click hear to read more</a>
 </div>
 
 

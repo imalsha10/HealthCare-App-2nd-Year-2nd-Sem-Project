@@ -23,7 +23,9 @@ import OrderDetails from './components/PrescribedMed/OrderDetails';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import UpdateDrug from './components/OnlinePharmacy/UpdateDrug';
+import Landing from './components/OnlinePharmacy/Landing';
 
 //Dental
 import AllPatients from './components/Dental/AllPatients';
@@ -50,6 +52,22 @@ import Register from './components/Login/Register';
 
 
 
+
+
+
+
+
+import Adddoctor from "./components/ConsultantCare/Adddoctor";
+import DoctorView from "./components/ConsultantCare/DoctorView";
+import CreateAppointment from "./components/ConsultantCare/CreateAppointment";
+import Appointments from "./components/ConsultantCare/Appointments";
+import AppointmentDetails from "./components/ConsultantCare/AppointmentDetails";
+import UpdateAppointment from "./components/ConsultantCare/UpdateAppointment";
+
+
+
+
+
 function App() {
   return (
     <Router>
@@ -62,6 +80,7 @@ function App() {
             <Route path='/login' element={<Login/>}/>
 
             <Route path='/onlinepharmacy' element={<AddDrugBtn/>}>
+               
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
                <Route path='viewOrders' element={<ViewOrders/>}/>
@@ -72,6 +91,7 @@ function App() {
                <SearchResult/>
             </>}>
                <Route path='displayDrugs' element={<DisplayDrugs/>}></Route>
+               <Route path='land' element={<Landing/>}></Route>
             </Route>
             <Route path='/displayCart' element={<Cart/>}></Route>
             <Route path='/online-p/placeorder' element={<PlaceOrder/>}></Route>
@@ -80,14 +100,14 @@ function App() {
 
 
 
-            <Route path="/add" element={<AddBlog />} />
-            <Route path="/addcus" element={<AddCusForm/>} />
-            <Route path="/getcus/:id" element={<ConfirmCus/>} />
-            <Route path="/updatecus/:id" element={<Updateevent />} />
-            <Route path="/getevent/:id" element={<ViewPage />} />
-            <Route path="/get/:id" element={<ViewPage />} />
-            <Route path="/cus" element={<ViewCus/>} />
-            <Route path="/" element={<AllBlogs />} />
+            <Route path="/blog/add" element={<AddBlog />} />
+            <Route path="/blog/addcus/:eventId" element={<AddCusForm/>} />
+            <Route path="/blog/getcus/:id" element={<ConfirmCus/>} />
+            <Route path="/blog/updatecus/:id" element={<Updateevent />} />
+            <Route path="/blog/getevent/:id" element={<ViewPage />} />
+            <Route path="/blog/get/:id" element={<ViewPage />} />
+            <Route path="/blog/cus" element={<ViewCus/>} />
+            <Route path="/blog/allblogs" element={<AllBlogs />} />
 
           
 
@@ -95,6 +115,7 @@ function App() {
             <Route path="/prescribed-m/add" element={<OrderDrugs />} />
             <Route path="/prescribed-m/OrderHome" element={<OrderHome />} />
             <Route path="/order-details/:id" element={<OrderDetails />} />
+
 
             
             {/*Dental*/}
@@ -116,9 +137,36 @@ function App() {
 
 
             {/* Default route */}
+
+            
+             {/* Default route */}
+
             <Route path="*" element={<Alluser />} />
+             
+            
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Route path="/consultant/doctorview" element={<DoctorView />} />
+            <Route path="/consultant/add" element={<Adddoctor />} />
+            <Route path="/consultant/view" element={<Appointments />} />
+            <Route path="/consultant/addapp" element={<CreateAppointment />} />
+            <Route path="/consultant/updateAppointment/:id"element={<UpdateAppointment/>}></Route>
+            <Route path="/consultant/appointmentDetails/:id"element={<AppointmentDetails />}></Route>
 
             
           </Routes>

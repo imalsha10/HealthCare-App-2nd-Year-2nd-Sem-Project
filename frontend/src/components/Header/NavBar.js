@@ -9,7 +9,7 @@ function NavBar () {
         <div className="navBar">
          <ul className="nav nav-underline" style={{marginLeft:"18px",marginRight:"18px"}}>
                 <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/onlinepharmacyP" style={{color:"black"}}>Online-Pharmacy</a>
+                <a className="nav-link" aria-current="page" href="/onlinepharmacyP/land" style={{color:"black"}}>Online-Pharmacy</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="/onlinepharmacy" style={{color:"black"}}>PA</a>
@@ -27,10 +27,10 @@ function NavBar () {
                 <a className="nav-link"  href="/dental/dentalGet" style={{color:"black"}}>DA</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Consultant Care</a>
+                <a className="nav-link"  href="/consultant/doctorview" style={{color:"black"}}>Consultant Care</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>AH</a>
+                <a className="nav-link"  href="/consultant/add" style={{color:"black"}}>AH</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Laboratory</a>
@@ -42,10 +42,10 @@ function NavBar () {
                 <a className="nav-link"  href="#" style={{color:"black"}}>Healthcare Plans</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="/" style={{color:"black"}}>Health-Blog</a>
+                <a className="nav-link"  href="/blog/allblogs" style={{color:"black"}}>Health-Blog</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="/add" style={{color:"black"}}>HB</a>
+                <a className="nav-link"  href="/blog/add" style={{color:"black"}}>HB</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="#" style={{color:"black"}}>Inquiries</a>
