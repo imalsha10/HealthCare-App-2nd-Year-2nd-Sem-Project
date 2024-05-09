@@ -53,7 +53,8 @@ export default function OrderDrugs() {
       description
     };
 
-    axios.post(`http://localhost:8070/user/add`, newUser)
+
+    axios.post("http://localhost:8070/user/add", newUser)
       .then((data) => {
         const userId = data.data.user._id;
         successMessage("success","drug added");

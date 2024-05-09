@@ -29,12 +29,16 @@ const orderSchema = new Schema({
          type : String,
          required : false
       },
+      dateTime : {
+         type : String,
+         required : true
+      },
       itemNames : {
          type : String,
          required : true
       },
       amount : {
-         type : Number,
+         type : String,
          required : true
       }
 

@@ -39,7 +39,7 @@ export default function Cart() {
 
              console.log(total)
              console.log(cart)
-    
+
 
     return (
         <div style={{ marginLeft:'30px', marginRight:'30px', marginTop:'50px'}}>
