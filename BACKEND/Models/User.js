@@ -1,12 +1,13 @@
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userSchema = new Schema(
     {
-        fname:{
+        name:{
             type:String,
             required:true
         },
-        lname:{
+        number:{
             type:String,
             required:true
         },
@@ -21,11 +22,30 @@ const userSchema = new Schema(
         city:{
             type:String,
             required:true
+        },
+        address:{
+            type:String,
+            required:true
+        },
+
+        description: {
+            type: String,
+            required: true
+        },
+        image:{
+            type:String,
+            required:true
         }
-      
+     
+       
+       
+       
         
 
     }
-)
+);
 const User = mongoose.model("User",userSchema);
 module.exports = User;
+
+
+

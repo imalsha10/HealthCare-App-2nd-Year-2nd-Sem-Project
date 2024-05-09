@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { handleUpload } from "./handleUpload";
+import { successMessage } from "./Alert";
 import './OrderDrugs.css';
 
 
 export default function OrderDrugs() {
+
+  const [image, setImage] = useState("");
+  const [file, setFile] = useState("");
+  const [percent, setPercent] = useState(0);
+
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -36,6 +43,7 @@ export default function OrderDrugs() {
     
     // If all fields are valid, proceed with form submission
     const newUser = {
+      image,
       name,
       number,
       email,
@@ -45,9 +53,14 @@ export default function OrderDrugs() {
       description
     };
 
+
     axios.post("http://localhost:8070/user/add", newUser)
       .then((data) => {
         const userId = data.data.user._id;
+        successMessage("success","drug added");
+        setImage("");
+        setFile("");
+        setPercent(0);
         // Simulating image upload progress
         setUploadProgress(50); // Set progress to 50%
         // Simulate image upload completion after 2 seconds
@@ -62,15 +75,60 @@ export default function OrderDrugs() {
       });
   }
 
+  const handleImageUpload = (e) => {
+    handleUpload({ file, setPercent, setFunc: setImage });
+  };
+
+  // Handle blog image change
+  function handleImageChange(event) {
+    setFile(event.target.files[0]);
+  }
+
   return (
     <div className="background1">
-      <div style={{width:'100%',backgroundColor:"#87CEFA",height:'80px',marginBottom:"10px",marginTop:"10px"}}>
-        <p style={{textAlign:'center', padding:' 10px 0',color:'white', fontSize:'40px'}}>Upload your prescription</p>
-        
-       </div>
-      <img src="https://expertcourtreports.co.uk/wp-content/uploads/2022/05/Pharmacy.jpg" alt="Upload Prescription Illustration" className="prescription-image" style={{display:'',marginBottom:"10px"}}/>
+     
       
-      <button style={{backgroundColor:"#8FBC8F"}}>what is valid prescription</button>
+      <div style={{ width: "100%", backgroundColor: "#00CED1", height: "175px",marginTop:"0px",marginBottom:"70px" }}>
+        <h2 style={{ textAlign: "center", padding: "1px 0", color: "black",marginTop:"50px"}}>Upload Prescription</h2>
+      
+        <div className="container text-center" style={{marginTop:"60px",marginBottom:"0px"}}>
+       
+        <div className="row">
+          <div className="col" style={{ backgroundColor: "#008080" ,color:"white",borderRadius:"50px"}}>
+            <img src="https://cdn.icon-icons.com/icons2/1122/PNG/512/rectangleinsquare_79513.png" style={{ width: "20px" }} />
+            Low prices, with or without insurance
+          </div>
+          <div className="col" style={{ backgroundColor: "#008080" ,color:"white",borderRadius:"50px",marginLeft:"50px",marginRight:"50px"}} >
+            <img src="https://cdn.icon-icons.com/icons2/1122/PNG/512/rectangleinsquare_79513.png" style={{ width: "20px" }} />
+            Automatic refills, delivered to your door
+          </div>
+          <div className="col" style={{ backgroundColor: "#008080" ,color:"white",borderRadius:"50px"}}>
+            <img src="https://cdn.icon-icons.com/icons2/1122/PNG/512/rectangleinsquare_79513.png" style={{ width: "20px" }} />
+            Pharmacists on call 24/7
+          </div>
+        </div>
+       
+      </div>
+
+      </div>
+      <div class="container text-center" style={{ marginBottom:"20px"}} >
+      <div class="row">
+    <div class="col">
+      <img style={{width:"50%"}} src="https://st2.depositphotos.com/20995018/47212/v/450/depositphotos_472123570-stock-illustration-rx-form-form-for-medicines.jpg"/>
+    </div>
+    <div class="col">
+    <img style={{width:"50%"}} src="https://static.vecteezy.com/system/resources/previews/020/862/901/original/doctor-writing-prescription-illustration-concept-on-white-background-vector.jpg"/>
+   
+    </div>
+    <div class="col">
+    <img style={{width:"50%"}} src="https://img.freepik.com/premium-vector/medicine-prescription-formular-rx-drugs-pills-medicines-medical-list-treatment-healthcare-diagnoses-proper-dosing-list-vector-illustration_229548-2889.jpg"/>
+   
+    </div>
+  </div>
+        </div>
+
+
+      
       <div className="container">
         <form className="shadow p-4 rounded" style={{width:'800px'}} onSubmit={sendData}>
           <p>Please fill the following details & upload the prescription.</p>
@@ -118,49 +176,65 @@ export default function OrderDrugs() {
           <div className="row mt-3">
             <div className="col">
               <div className="mb-3">
-              <label htmlFor="imageFile" className="form-label mt-3">Upload Prescription</label>
-              <input type="file" className="form-control" id="imageFile" required style={{width: '100%',height:'150px'}} />
+
+
+
               
-              <div className="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow={uploadProgress} aria-valuemin="0" aria-valuemax="100">
-                <div className="progress-bar progress-bar-striped progress-bar-animated" style={{width: `${uploadProgress}%`}}></div>
-              </div>
+              <label htmlFor="image"  className="form-label" style={{ fontWeight: '500' }}>Photo</label>
+              <input
+                type="file"
+                className="form-control"
+                id="image"
+                placeholder="Upload image"
+                onChange={handleImageChange}
+                required
+              />
+              <button
+                type="button"
+                onClick={handleImageUpload}
+                disabled={!file || percent === 100}
+                className="btn btn-outline-dark mt-2 btn-sm"
+              >
+                Upload
+              </button>
+              <div className="progress mt-2">
+                <div
+                  className={`progress-bar ${
+                    percent < 100
+                      ? "bg-success progress-bar-striped progress-bar-animated"
+                      : "bg-success"
+                  }`}
+                  role="progressbar"
+                  style={{ width: `${percent}%` }}
+                  aria-valuenow={percent}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {percent < 100
+                    ? `Uploading ${percent}%`
+                    : `Uploaded ${percent}% `}
+                </div>
+                </div>
+              
             </div>
               </div>
+
               <button type="submit" className="btn btn-primary">Submit</button>
             </div>
           </div>
         </form>
-      </div>
-      <div style={{ width: "100%", backgroundColor: "#00CED1", height: "175px",marginTop:"50px",marginBottom:"70px" }}>
-        <p class="fw-bold"  style={{ textAlign: "center", padding: "30px 0", color: "black", fontSize: "20px"}}>e-Channeling is the most trustworthy & reliable online pharmacy in Sri Lanka. Simply upload your prescription to get your medication delivered to your doorstep</p>
-      
-        <div className="container text-center" style={{marginTop:"10px"}}>
-       
-        <div className="row">
-          <div className="col" style={{ backgroundColor: "#008080" ,color:"white",borderRadius:"50px"}}>
-            <img src="https://cdn.icon-icons.com/icons2/1122/PNG/512/rectangleinsquare_79513.png" style={{ width: "20px" }} />
-            Low prices, with or without insurance
-          </div>
-          <div className="col" style={{ backgroundColor: "#008080" ,color:"white",borderRadius:"50px",marginLeft:"50px",marginRight:"50px"}} >
-            <img src="https://cdn.icon-icons.com/icons2/1122/PNG/512/rectangleinsquare_79513.png" style={{ width: "20px" }} />
-            Automatic refills, delivered to your door
-          </div>
-          <div className="col" style={{ backgroundColor: "#008080" ,color:"white",borderRadius:"50px"}}>
-            <img src="https://cdn.icon-icons.com/icons2/1122/PNG/512/rectangleinsquare_79513.png" style={{ width: "20px" }} />
-            Pharmacists on call 24/7
-          </div>
-        </div>
-       
-      </div>
 
       </div>
-      <div class="grid-container" style={{display: 'grid',BsColumnsGap:'50px',gridTemplateColumns: 'auto auto auto', backgroundcolor: '#2196F3',padding: '10px'}}>
-  <div class="grid-item" style={{backgroundcolor: 'rgba(255, 255, 255, 0.8)',border: '1px solid rgba(0, 0, 0, 0.8)',padding: '20px',fontsize: '30px',textalign: 'center'}}>1 Lakh+ Products
+
+      <p class="fw-bold"  style={{ textAlign: "center", padding: "10px 0", color: "black", fontSize: "20px",marginTop:"50px",marginBottom:"40px"}}>e-Channeling is the most trustworthy & reliable online pharmacy in Sri Lanka. Simply upload your prescription to get your medication.</p>
+     
+      <div class="grid-container" style={{display: 'grid',backgroundColor:"#ccffe6",BsColumnsGap:'50px',gridTemplateColumns: 'auto auto auto',padding: '10px'}}>
+  <div class="grid-item" style={{backgroundcolor: 'rgba(255, 255, 255, 0.8)',border: '1px solid rgba(0, 0, 0, 0.8)',borderBlockColor:"white",padding: '20px',fontsize: '30px',textalign: 'center'}}>1 Lakh+ Products
 We maintain strict quality controls on all our partner retailers, so that you always get standard quality products</div>
-  <div class="grid-item" style={{backgroundcolor: 'rgba(255, 255, 255, 0.8)',border: '1px solid rgba(0, 0, 0, 0.8)',padding: '20px',fontsize: '30px',textalign: 'center'}}>Secure Payment
+  <div class="grid-item" style={{backgroundcolor: 'rgba(255, 255, 255, 0.8)',border: '1px solid rgba(0, 0, 0, 0.8)',borderBlockColor:"white",padding: '20px',fontsize: '30px',textalign: 'center'}}>Secure Payment
 100% secure and trusted payment protection
 </div>
-  <div class="grid-item" style={{backgroundcolor: 'rgba(255, 255, 255, 0.8)',border: '1px solid rgba(0, 0, 0, 0.8)',padding: '20px',fontsize: '30px',textalign: 'center'}}>Easy Return
+  <div class="grid-item" style={{backgroundcolor: 'rgba(255, 255, 255, 0.8)',border: '1px solid rgba(0, 0, 0, 0.8)',borderBlockColor:"white",padding: '20px',fontsize: '30px',textalign: 'center'}}>Easy Return
 We have a new and dynamic return window policy for medicines and healthcare items. Refer FAQs section for more details</div>  </div>
 
     </div>
