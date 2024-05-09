@@ -12,6 +12,7 @@ import { CartContext } from './CartContext';
 
 
 
+
 export default function DisplayDrugs() {
 
    const [drugs, setDrugs] = React.useState([]);
@@ -41,7 +42,7 @@ export default function DisplayDrugs() {
             <Card key={index} sx={{ maxWidth: 345 }}>
                 <CardMedia
                     sx={{ height: 140 }}
-                    image="/static/images/cards/contemplative-reptile.jpg"
+                    image="/drugName.jpg"
                     title="Drug Image"
                 />
                 <CardContent>

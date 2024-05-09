@@ -40,7 +40,7 @@ export default function OrderDetails() {
 
       try {
        
-        const response = await axios.put(`http://localhost:8080/user/update/${userId}`, formData);
+        const response = await axios.put(`http://localhost:8070/user/update/${userId}`, formData);
         if (response.data.status === "user updated") {
           alert("User updated successfully!");
           setIsEdit(false);

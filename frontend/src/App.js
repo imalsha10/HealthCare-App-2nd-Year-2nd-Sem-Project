@@ -24,10 +24,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
+import UpdateDrug from './components/OnlinePharmacy/UpdateDrug';
+import Landing from './components/OnlinePharmacy/Landing';
 
 
 
@@ -59,30 +57,34 @@ function App() {
         
           <Routes>
             <Route path='/onlinepharmacy' element={<AddDrugBtn/>}>
+               
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
                <Route path='viewOrders' element={<ViewOrders/>}/>
+               <Route path='updateDrug/:id' element={<UpdateDrug/>}/>
             </Route>
             <Route path='/onlinepharmacyP'element={<>
                <SearchBar/>
                <SearchResult/>
             </>}>
                <Route path='displayDrugs' element={<DisplayDrugs/>}></Route>
+               <Route path='land' element={<Landing/>}></Route>
             </Route>
             <Route path='/displayCart' element={<Cart/>}></Route>
             <Route path='/online-p/placeorder' element={<PlaceOrder/>}></Route>
             <Route path='/online-p/paysuccess' element={<PaySuccess/>}></Route>
+            
 
 
 
-            <Route path="/add" element={<AddBlog />} />
-            <Route path="/addcus" element={<AddCusForm/>} />
-            <Route path="/getcus/:id" element={<ConfirmCus/>} />
-            <Route path="/updatecus/:id" element={<Updateevent />} />
-            <Route path="/getevent/:id" element={<ViewPage />} />
-            <Route path="/get/:id" element={<ViewPage />} />
-            <Route path="/cus" element={<ViewCus/>} />
-            <Route path="/" element={<AllBlogs />} />
+            <Route path="/blog/add" element={<AddBlog />} />
+            <Route path="/blog/addcus/:eventId" element={<AddCusForm/>} />
+            <Route path="/blog/getcus/:id" element={<ConfirmCus/>} />
+            <Route path="/blog/updatecus/:id" element={<Updateevent />} />
+            <Route path="/blog/getevent/:id" element={<ViewPage />} />
+            <Route path="/blog/get/:id" element={<ViewPage />} />
+            <Route path="/blog/cus" element={<ViewCus/>} />
+            <Route path="/blog/allblogs" element={<AllBlogs />} />
 
           
 
@@ -90,6 +92,7 @@ function App() {
             <Route path="/prescribed-m/add" element={<OrderDrugs />} />
             <Route path="/prescribed-m/OrderHome" element={<OrderHome />} />
             <Route path="/order-details/:id" element={<OrderDetails />} />
+            
              {/* Default route */}
             <Route path="*" element={<Alluser />} />
              
