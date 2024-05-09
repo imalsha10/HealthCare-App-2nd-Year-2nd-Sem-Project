@@ -76,6 +76,13 @@ const userRouter = require("./Routes/users");
 app.use("/user",userRouter);
 
 
+//consultantcare
+const doctorRouter = require("./Routes/doctors.js");
+app.use("/doctor", doctorRouter);
+
+const appointmentRouter = require("./Routes/appointments.js");
+app.use("/appointment", appointmentRouter);
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on port ${PORT}!`);
