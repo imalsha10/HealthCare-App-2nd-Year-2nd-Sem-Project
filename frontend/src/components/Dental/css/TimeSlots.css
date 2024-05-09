@@ -1,0 +1,47 @@
+/* TimeSlots.css */
+
+.time-slot-container {
+  text-align: center;
+  margin-top: 0px;
+  background-image: url('../images/bg.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  height: 85vh; 
+}
+
+.time-slot-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #2a9d8f;
+}
+
+.time-slot-note {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.time-slot-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto; 
+  width: 30%; 
+}
+
+.time-slot-item {
+  width: 100%;
+  text-align: center;
+  color: black;
+  letter-spacing: 5px;
+  background-color: #2a9d8f;
+  border: black; 
+  padding: 10px;
+  border-radius: 30px; 
+  margin-bottom: 7px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.time-slot-item:hover {
+  background-color: darkgrey; 
+}

@@ -25,6 +25,26 @@ import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
 import UpdateDrug from './components/OnlinePharmacy/UpdateDrug';
 
+//Dental
+import AllPatients from './components/Dental/AllPatients';
+import AddPatient from './components/Dental/AddPatient';
+import DeletePatient from './components/Dental/DeletePatient';
+import UpdatePatient from './components/Dental/UpdatePatient';
+import Dental from './components/Dental/Dental';
+import TimeSlotSelection from './components/Dental/TimeSlots';
+import SubmissionSuccessful from './components/Dental/SubmissionSuccessful';
+import AddService from './components/Dental/AddService';
+import AllServices from './components/Dental/AllServices';
+import UpdateService from './components/Dental/UpdateService';
+import CosmeticDentistry from './components/Dental/CosmeticDentistry';
+import DentalImplants from './components/Dental/DentalImplants'
+import RootCanalTreatment from './components/Dental/RootCanalTreatment';
+
+//Login
+import Login from './components/Login/Login';
+import Register from './components/Login/Register';
+
+
 
 
 
@@ -38,6 +58,9 @@ function App() {
           <NavBar/>
         
           <Routes>
+            <Route path='/register' element={<Register/>}/>
+            <Route path='/login' element={<Login/>}/>
+
             <Route path='/onlinepharmacy' element={<AddDrugBtn/>}>
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
@@ -72,7 +95,27 @@ function App() {
             <Route path="/prescribed-m/add" element={<OrderDrugs />} />
             <Route path="/prescribed-m/OrderHome" element={<OrderHome />} />
             <Route path="/order-details/:id" element={<OrderDetails />} />
-             {/* Default route */}
+
+            
+            {/*Dental*/}
+            <Route path='/dental/dentalHome' element={<Dental/>}/>
+            <Route path='/dental/dentalAdd' element={<AddPatient/>}/>
+            <Route path='/dental/dentalTimes' element={<TimeSlotSelection/>}/>
+            <Route path='/dental/dentalDelete/:id' element={<DeletePatient/>}/>
+            <Route path='/dental/dentalUpdate/:id' element={<UpdatePatient/>}/>
+            <Route path='/dental/success' element={<SubmissionSuccessful/>}/>
+            <Route path='/dental/dentalGet' element={<AllPatients/>}/>
+            <Route path='/dental/dentalAddService' element={<AddService/>}/>
+            <Route path='/dental/dentalServices' element={<AllServices/>}/>
+            <Route path='/dental/dentalServiceUpdate/:id' element={<UpdateService/>}/>
+            <Route path='/dental/cosmeticDentistry' element={<CosmeticDentistry/>}/>
+            <Route path='/dental/dentalImplants' element={<DentalImplants/>}/>
+            <Route path='/dental/rootCanalTreatment' element={<RootCanalTreatment/>}/>
+
+
+
+
+            {/* Default route */}
             <Route path="*" element={<Alluser />} />
 
 

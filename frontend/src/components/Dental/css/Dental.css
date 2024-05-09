@@ -1,0 +1,126 @@
+.dental-container {
+  background-image: url('../images/bg.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  height: 85vh; 
+ 
+}
+
+.heading {
+  text-align: center;
+  letter-spacing: 3px; 
+  font-weight: bold;
+  padding: 10px;
+}
+
+.details-container{
+  margin-right: 7%;
+}
+
+.dental-services {
+  display: flex;
+  float: right;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 55%;
+  height: 100%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.dental-image {
+  float: left;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 25%;
+  height: 70%;
+  margin-left: 7%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.dental-image img {
+  width: 100%;
+  height: 108%;
+}
+
+.dental-image p {
+  font-size: 1em;
+  font-weight: bold;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.book-btn {
+  display: block;
+}
+
+.service-box {
+  width: 300px;
+  text-align: center;
+  padding: 25px;
+  margin: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+.service-box h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #2a9d8f; /* Greenish color */
+}
+
+.service-box p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.service-box a {
+  display: inline-block; /* Center align the button */
+  background-color: #2a9d8f; /* Greenish color */
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.service-box a:hover {
+  background-color: #218c7b; /* Darker shade of greenish color on hover */
+}
+
+.dental-info {
+  float: right;
+  display: flow-root;
+  width: 40%;
+  text-align: center;
+  padding: 5px;
+  margin-right: 6.9%;
+  margin-top: 10px;
+}
+
+.dental-info p {
+  font-size: 1em;
+  color: #666;
+  text-align: center;
+}
+
+.dental-info a {
+  display: block;
+  background-color: #2a9d8f; /* Orange color */
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.dental-info a:hover {
+  background-color: #218c7b; /* Darker shade of orange color on hover */
+}
