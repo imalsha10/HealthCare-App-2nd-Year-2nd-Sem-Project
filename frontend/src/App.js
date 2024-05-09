@@ -48,6 +48,7 @@ function App() {
             <Route path="/prescribed-m/add" element={<OrderDrugs />} />
             <Route path="/prescribed-m/OrderHome" element={<OrderHome />} />
             <Route path="/order-details/:id" element={<OrderDetails />} />
+            
              {/* Default route */}
             <Route path="*" element={<Alluser />} />
 
