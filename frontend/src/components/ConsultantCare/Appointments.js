@@ -13,7 +13,7 @@ export default function Appointments() {
   useEffect(() => {
     function getAppointments() {
       axios
-        .get("http://localhost:8080/appointment/view")
+        .get("http://localhost:8070/appointment/view")
         .then((res) => {
           console.log(res.data.success);
           setAppointments(res.data.existingAppointments);
@@ -34,7 +34,7 @@ export default function Appointments() {
     console.log(result);
     if (result === true) {
       axios
-        .delete(`http://localhost:8080/appointment/delete/${appointment._id}`)
+        .delete(`http://localhost:8070/appointment/delete/${appointment._id}`)
         .then((res) => {})
         .catch((appointment) => {
           alert(appointment);

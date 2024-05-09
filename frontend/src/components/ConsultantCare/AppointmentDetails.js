@@ -21,23 +21,30 @@ export default function AppointmentDetails() {
   }, [id]);
 
   return (
+    <div className="background-container">
     <div className="main-container">
       <div className="body-container clearfix">
-        <div className="order-section-one-container container-heading">
+       
           
-          
-          <div className="order-section-one-left">
-            <h3>Edit Your Details Here..</h3>
-          </div>
-          
+        <div className="container">
+        <div className="row">
+            <h3>Edit Appointment Form</h3>
+        </div>
+        </div>
+        {<img
+            src="/form.png" //frontend\public\form.png
+            alt="form"
+            className="corner-image"
+          />}
         </div>
         {appointment && (
-          <div className="main-container" style={{ width: '100%', maxWidth: '1200px' }}>
-            <div className="row">
-              <div className="col-lg-7 mx-auto">
+          <div className="container" style={{ width: '100%', maxWidth: '1200px' }}>
+            <div className="row-form">
+              
                 <div className="card mt-2 mx-auto p-4 bg-light">
                   <div className="card-body bg-light">
                     <div className="container">
+                    <div className="row-form"> 
                       <form>
                         <div className="controls">
                           <div className="row">
@@ -195,9 +202,9 @@ export default function AppointmentDetails() {
                               <button
                              id="edit-details-button"
                              className="btn btn-primary"
-                              style={{ width: '300px',backgroundColor: '#19197f' }} // Adjust the width as needed
+                              style={{ width: '200px',backgroundColor: '#19197f' }} // Adjust the width as needed
                               >
-                            Edit Appointment Details
+                            Edit Appointment
                             </button>
                               </Link>
 
@@ -213,9 +220,11 @@ export default function AppointmentDetails() {
               </div>
             </div>
           </div>
+        
         )}
        
       </div>
     </div>
+    
   );
 }

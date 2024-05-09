@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { handleUpload } from "./HandleUpload";
 import { successMessage } from "./Alert";
+import "../../css/doctor.css"
 
 export default function AddDoctor() {
   const [id, setId] = useState("");
@@ -51,6 +52,7 @@ export default function AddDoctor() {
   }
 
   return (
+    
     <div className="main-container">
       <form className="add-doctor-container" onSubmit={sendData}>
         <div className="title_add">
@@ -151,10 +153,11 @@ export default function AddDoctor() {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-        <Link to="/consultant/doctorview" className="view-doctors-link">
-          View Doctors
-        </Link>
+        
       </form>
+      <Link to="/consultant/view">
+          <button style={{marginLeft:"240px"}} className="btn btn-primary">view appointment</button>
+        </Link>
     </div>
   );
 }

@@ -74,6 +74,7 @@ select {
     padding: 15px; /* Adjust padding for spacing inside the inputs */
     border: 1px solid #ced4da;
     border-radius: 4px;
+    
     margin-bottom: 20px; /* Add margin between input fields */
 }
 
@@ -85,8 +86,8 @@ select {
     top: 400px;
     bottom: 50px; /* Adjust as needed */
     right: 10px; /* Adjust as needed */
-    width: 400px; /* Adjust the width as needed */
-    height: 600px; /* Maintains aspect ratio */
+    width: 300px; /* Adjust the width as needed */
+    height: 400px; /* Maintains aspect ratio */
     z-index: 999; /* Ensures the image stays on top */
   }
   
@@ -94,6 +95,7 @@ select {
     flex: 1;
 }
 
+  
 .card {
     max-width: 600px;
     background-color: #8db2d5; /* Example background color */
@@ -106,3 +108,22 @@ select {
     color: white;
     /* Additional styles as needed */
 }
+
+
+.form-div{
+    border: 1px solid rgb(2, 2, 18);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5%;
+}
+.background-container {
+    background-image: url('https://files.123freevectors.com/wp-content/original/142195-blue-and-white-simple-background.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+
+.form-control{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+

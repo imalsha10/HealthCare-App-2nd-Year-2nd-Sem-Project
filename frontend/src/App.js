@@ -23,7 +23,7 @@ import OrderDetails from './components/PrescribedMed/OrderDetails';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
