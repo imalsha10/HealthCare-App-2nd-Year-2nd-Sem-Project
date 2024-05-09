@@ -9,7 +9,7 @@ function NavBar () {
         <div className="navBar">
          <ul className="nav nav-underline" style={{marginLeft:"18px",marginRight:"18px"}}>
                 <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/onlinepharmacyP" style={{color:"black"}}>Online-Pharmacy</a>
+                <a className="nav-link" aria-current="page" href="/onlinepharmacyP/land" style={{color:"black"}}>Online-Pharmacy</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link"  href="/onlinepharmacy" style={{color:"black"}}>PA</a>

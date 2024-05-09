@@ -24,6 +24,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ViewOrders from './components/OnlinePharmacy/ViewOrders';
 import AllBlogs from './components/HealthBlog/AllBlogs';
 import UpdateDrug from './components/OnlinePharmacy/UpdateDrug';
+import Landing from './components/OnlinePharmacy/Landing';
 
 
 
@@ -39,6 +40,7 @@ function App() {
         
           <Routes>
             <Route path='/onlinepharmacy' element={<AddDrugBtn/>}>
+               
                <Route path='addDrug' element={<AddDrugForm/>}/>
                <Route path='viewDrug' element={<ViewAddedDrugs/>}/>
                <Route path='viewOrders' element={<ViewOrders/>}/>
@@ -49,6 +51,7 @@ function App() {
                <SearchResult/>
             </>}>
                <Route path='displayDrugs' element={<DisplayDrugs/>}></Route>
+               <Route path='land' element={<Landing/>}></Route>
             </Route>
             <Route path='/displayCart' element={<Cart/>}></Route>
             <Route path='/online-p/placeorder' element={<PlaceOrder/>}></Route>

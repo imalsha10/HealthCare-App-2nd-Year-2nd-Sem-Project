@@ -42,7 +42,7 @@ router.route("/").get((req,res)=>{
 
 router.route("/get").get((req,res) =>{
 
-     drug.find({}, {name:1, description : 1, price : 1, _id: 0})
+     drug.find({}, {name:1, description : 1, price : 1, _id: 1})
      .sort({_id :-1})
      .limit(9)
      .then((drugs)=>{
@@ -109,7 +109,26 @@ router.route("/update/:id").put( async (req,res) => {
 
 })
 
-
+router.put("/quantity/:productId", async (req, res) => {
+    const productId = req.params.productId ;
+    const { stockQuantity } = req.body;
+  
+    try {
+     
+      const product = await drug.findByIdAndUpdate(productId);
+  
+      
+      product.stockQuantity = stockQuantity;
+  
+     
+      await product.save();
+  
+      res.status(200).json({ message: 'Stock quantity updated successfully' });
+    } catch (error) {
+      console.error("Failed to update stock quantity:", error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
 
 
 
