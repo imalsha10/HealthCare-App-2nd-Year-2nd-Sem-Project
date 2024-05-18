@@ -48,10 +48,10 @@ function NavBar () {
                 <a className="nav-link"  href="/blog/add" style={{color:"black"}}>HB</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>Inquiries</a>
+                <a className="nav-link"  href="/inquiry-i/get" style={{color:"black"}}>Inquiries</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link"  href="#" style={{color:"black"}}>IQ</a>
+                <a className="nav-link"  href="/inquiry-i/add" style={{color:"black"}}>IQ</a>
                 </li>
        
           </ul>
