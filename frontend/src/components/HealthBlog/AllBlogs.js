@@ -69,7 +69,7 @@ export default function AllBlogs() {
       <h5 style={{color:"white"}}>Health News: Latest Research,Trending topics stay up to date with the
         latest medical and health news that matter most to you and your family.</h5>
       <br/>
-      <Link to="/" className="btn btn-primary" style={{ color: 'white', fontSize: '20px', borderColor: 'white', backgroundColor: 'transparent' }}>
+      <Link to="/blog/allblogs" className="btn btn-primary" style={{ color: 'white', fontSize: '20px', borderColor: 'white', backgroundColor: 'transparent' }}>
   Read More
 </Link>
 <br/>
@@ -89,20 +89,20 @@ export default function AllBlogs() {
       <h5 >Achieve your body, health and lifestyle in a Fun, Easy and </h5>
       <h5 >Sustainble Way.</h5>
       <br/>
-      <Link to="/" className="btn btn-primary" style={{ color: 'blue', fontSize: '20px', borderColor: 'blue', backgroundColor: 'transparent' }}>
+      <Link to="/blog/allblogs" className="btn btn-primary" style={{ color: 'blue', fontSize: '20px', borderColor: 'blue', backgroundColor: 'transparent' }}>
   Explore
 </Link>
 </div>
     <div class="col">
     <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel" style={{ width: "100%" }}>
   <div className="carousel-inner">
-    <div className="carousel-item active" data-bs-interval="10000">
+    <div className="carousel-item active" data-bs-interval="2000">
       <img src="https://www.icanotes.com/wp-content/uploads/2023/09/01-How-to-Provide-Culturally-Responsive-Care-in-Mental-Health-Care-1024x512.jpg" className="d-block w-100" alt="Slide 1" style={{ width: "100%", maxHeight: "420px", objectFit: "cover" }} />
     </div>
     <div className="carousel-item" data-bs-interval="2000">
       <img src="https://blogcdn.healthiapp.com/wp-content/uploads/2023/11/5.png" className="d-block w-100" alt="Slide 2" style={{ width: "100%", maxHeight: "420px", objectFit: "cover" }} />
     </div>
-    <div className="carousel-item">
+    <div className="carousel-item" data-bs-interval="2000">
       <img src="https://www.healthyspan.in/wp-content/uploads/2021/04/r8-1.png" className="d-block w-100" alt="Slide 3" style={{ width: "100%", maxHeight: "420px", objectFit: "cover" }} />
     </div>
   </div>
@@ -176,7 +176,7 @@ export default function AllBlogs() {
       <div className="card-body">
         <h5>
           <Link
-            to={`/get/${blog._id}`}
+            to={`/blog/get/${blog._id}`}
             style={{ textDecoration: "none", color: "#333" }}
           >
             {blog.blogtitle}
@@ -212,7 +212,7 @@ export default function AllBlogs() {
       <div className="card-body">
         <h3>
           <Link
-            to={`/getevent/${event._id}`}
+            to={`/blog/getevent/${event._id}`}
             style={{ textDecoration: "none", color: "#333" }}
           >
             {event.eventtitle}
@@ -226,7 +226,13 @@ export default function AllBlogs() {
         </p>
         <p className="summary" style={{ fontSize: "14px" }}>{event.eventsummary}</p>
         <br/>
-        <Link to="/addcus" className="btn btn-primary" style={{ color: 'white', fontSize: '14px' }}>
+        <Link
+        to={{
+         pathname: `/blog/addcus/${event.eventcode}`
+         }}
+         className="btn btn-primary"
+         style={{ color: 'white', fontSize: '14px' }}
+        >
           Participate Event
         </Link>
       </div>

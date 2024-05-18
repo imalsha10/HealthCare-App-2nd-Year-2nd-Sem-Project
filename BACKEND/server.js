@@ -5,6 +5,10 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
+const User = require("./Models/login");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 const PORT = process.env.PORT || 8070;
 
@@ -12,6 +16,21 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET)
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Configure session and passport
+app.use(session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Configure passport-local strategy
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 const URL = process.env.MONGODB_URL;
 
@@ -27,6 +46,11 @@ connection.once("open", () => {
     console.log("MongoDB Connection successfull!");
 });
 
+//Login
+const loginRouter = require("../BACKEND/Routes/logins");
+app.use("/logins", loginRouter);
+
+//Online Pharmacy
 const drugsRouter = require("./Routes/drugs");
 app.use("/newdrugs", drugsRouter);
 
@@ -58,16 +82,14 @@ app.post("/create-checkout-session", async (req, res) => {
     res.json({ id: session.id })
 })
 
+//Health Blog
 const bloghRouter = require("./Routes/bloghs.js");
-
 app.use("/blogh", bloghRouter);
 
 const eventRouter = require("./Routes/evenths.js");
-
 app.use("/eventh", eventRouter);
 
 const eventformRouter = require("./Routes/eventforms.js");
-
 app.use("/eventform", eventformRouter);
 
 const inquiryRouter = require("./Routes/inquiries.js");
@@ -78,6 +100,23 @@ app.use("/inquiry", inquiryRouter);
 //PrescribedMed
 const userRouter = require("./Routes/users");
 app.use("/user", userRouter);
+
+
+
+//Dental Services
+const serviceRouter = require("../BACKEND/Routes/services");
+app.use("/services", serviceRouter);
+
+const patientRouter = require("../BACKEND/Routes/patients");
+app.use("/patients", patientRouter);
+
+
+//consultantcare
+const doctorRouter = require("./Routes/doctors.js");
+app.use("/doctor", doctorRouter);
+
+const appointmentRouter = require("./Routes/appointments.js");
+app.use("/appointment", appointmentRouter);
 
 
 

@@ -75,7 +75,7 @@ router.route("/update/:id").put( async (req,res) => {
 router.route("/deleteorder/:id").delete( async (req,res) => {
     let orderId = req.params.id ;
 
-    await order.findByIdAndDelete(orderId).then(() => {
+    await order.findOneAndDelete(orderId).then(() => {
          res.json("Order Deleted!")
     }).catch((err) => {
          console.log(err)
@@ -84,6 +84,7 @@ router.route("/deleteorder/:id").delete( async (req,res) => {
 })
 
 
+  
 
 
 

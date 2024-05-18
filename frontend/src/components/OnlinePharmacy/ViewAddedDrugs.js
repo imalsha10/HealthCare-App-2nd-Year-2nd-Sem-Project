@@ -7,7 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 import axios  from 'axios';
+import { Link } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -50,12 +52,13 @@ export default function ViewAddedDrugs() {
 
 
   return (
-    <TableContainer component={Paper} style={{display:'inline-block', maxWidth:'450px', marginTop:'20px'}}>
+    <TableContainer component={Paper} style={{display:'inline-block', maxWidth:'650px', marginTop:'20px'}}>
       <Table  aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name Of Drug</StyledTableCell>
             <StyledTableCell align="center">Quantity(Boxes or Cards)</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -65,6 +68,11 @@ export default function ViewAddedDrugs() {
                 {drugs.name}
               </StyledTableCell>
               <StyledTableCell align="center">{drugs.quantity}</StyledTableCell>
+              <StyledTableCell align="center">
+                       <Link to={{ pathname:`/onlinepharmacy/updateDrug/${drugs._id}`, state :{drugs}}}>
+                       <Button variant="contained" style={{background:'#29b6f6'}}>Edit</Button>
+                       </Link>       
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
